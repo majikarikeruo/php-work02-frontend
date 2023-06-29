@@ -1,4 +1,4 @@
-import { Outlet } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import {
   Title,
   Text,
@@ -20,8 +20,26 @@ import {
   IconBasketFilled,
 } from "@tabler/icons-react";
 
+export const loader = async ({ params }) => {
+  console.log(params);
+
+  const res = await fetch(`http://localhost:8000/api/hamsters`);
+  const data = await res.json();
+  console.log(data);
+
+  return data;
+  // if (res) {
+  //   return json(data);
+  // } else {
+  //   throw new Error(data.message);
+  // }
+};
+
 export default function ProfileDashboards() {
   const ary = [1, 1, 1];
+
+  const hamsters = useLoaderData();
+  console.log(hamsters);
   return (
     <div className="bg-stone-50">
       <div className="py-8">
@@ -30,13 +48,16 @@ export default function ProfileDashboards() {
         </Title>
 
         <Group className="gap-0 border-0 border-b border-solid border-gray-300 mb-3">
-          {ary.map((item, index) => {
+          {hamsters.map((hamster, index) => {
             return (
               <Group
                 className=" relative bg-white px-3 py-5 w-full border-x-0 border-t border-b-0 border-solid border-gray-300"
                 key={index}
               >
-                <Anchor href="/dashboards/masako" className="flex w-full">
+                <Anchor
+                  href={`/dashboards/${hamster.id}`}
+                  className="flex w-full"
+                >
                   <Avatar
                     size={56}
                     className="rounded-full"
@@ -44,11 +65,11 @@ export default function ProfileDashboards() {
                   />
                   <div className="ml-4 text-black grow">
                     <Title order={6} className="mb-2">
-                      ハムスターまさこ
+                      {hamster.name}
                     </Title>
                     <Text>
-                      <span className="inline-block mr-3">オス</span>
-                      <span>1歳3ヶ月</span>
+                      <span className="inline-block mr-3">{hamster.sex}</span>
+                      <span>{hamster.birthday}</span>
                     </Text>
                   </div>
                   <IconChevronRight

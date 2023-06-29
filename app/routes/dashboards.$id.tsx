@@ -1,4 +1,3 @@
-import { Outlet } from "@remix-run/react";
 import { useDisclosure } from "@mantine/hooks";
 import { useLoaderData } from "@remix-run/react";
 // import { json } from "@remix-run/node";
@@ -7,7 +6,6 @@ import {
   Title,
   Text,
   Avatar,
-  Container,
   Tabs,
   Input,
   Button,
