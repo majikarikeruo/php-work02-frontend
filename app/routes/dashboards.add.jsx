@@ -12,6 +12,7 @@ import {
 } from "@mantine/core";
 
 import { IconCameraPlus } from "@tabler/icons-react";
+import config from "../../config";
 
 export async function action({ request }) {
   const formData = await request.formData();
@@ -24,10 +25,20 @@ export async function action({ request }) {
 }
 
 export default function ProfileDashboards() {
-  const submit = useSubmit();
+  const apiHost = config.API_URL;
 
-  const handleSubmit = (e) => {
-    submit(e.currentTarget);
+  const handleSubmit = async (e) => {
+    console.log(e);
+    e.preventDefault();
+    const response = await fetch(`${apiHost}/api/hamsters`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ key: "value" }),
+    });
+
+    console.log(response);
   };
 
   return (
@@ -37,7 +48,7 @@ export default function ProfileDashboards() {
           <Title order={3} className="mb-5 px-4 text-center">
             ペット情報追加
           </Title>
-          <Form method="post" onSubmit={handleSubmit}>
+          <Form method="post">
             <div className="mb-8">
               <Flex justify={"center"} className="mb-8 ">
                 <div className="relative">
@@ -123,7 +134,7 @@ export default function ProfileDashboards() {
                   >
                     戻る
                   </Anchor>
-                  <Button color="primary" type="submit">
+                  <Button color="primary" type="button" onClick={handleSubmit}>
                     ペット情報を追加
                   </Button>
                 </Flex>

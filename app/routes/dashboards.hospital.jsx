@@ -4,12 +4,10 @@ import { useDisclosure } from "@mantine/hooks";
 import {
   Title,
   Text,
-  Avatar,
   Anchor,
   AspectRatio,
   Input,
   Group,
-  Anchor,
   Modal,
   Button,
   Flex,
