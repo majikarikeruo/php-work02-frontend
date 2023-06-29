@@ -13,21 +13,13 @@ export default function Index() {
       <h1>Welcome to Remix</h1>
       <ul>
         <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
+          <a target="_blank" href="/dashboards" rel="noreferrer">
+            dashboard
           </a>
         </li>
         <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
+          <a href="/dashboards/profile" rel="noreferrer">
+            dashboard/profile
           </a>
         </li>
         <li>

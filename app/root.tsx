@@ -1,5 +1,4 @@
 import type { LinksFunction } from "@remix-run/cloudflare";
-import { cssBundleHref } from "@remix-run/css-bundle";
 import {
   Links,
   LiveReload,
@@ -8,14 +7,18 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import stylesheet from "~/tailwind.css";
+
+import { LayoutHeader } from "./routes/layout/header";
+import { LayoutFooter } from "./routes/layout/footer";
 
 export const links: LinksFunction = () => [
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+  { rel: "stylesheet", href: stylesheet },
 ];
 
 export default function App() {
   return (
-    <html lang="en">
+    <html lang="ja">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -23,7 +26,10 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <LayoutHeader />
         <Outlet />
+        <LayoutFooter />
+
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
