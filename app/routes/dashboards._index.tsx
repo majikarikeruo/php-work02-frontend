@@ -1,77 +1,48 @@
 import { useLoaderData } from "@remix-run/react";
-import {
-  Title,
-  Text,
-  Avatar,
-  Anchor,
-  Group,
-  Anchor,
-  Button,
-  Flex,
-} from "@mantine/core";
+import { Anchor, Group } from "@mantine/core";
 import {
   IconChevronRight,
-  IconPlus,
-  IconDeviceMobile,
-  IconBuildingHospital,
-  IconBrowser,
   IconStethoscope,
-  IconSearch,
   IconBasketFilled,
 } from "@tabler/icons-react";
 
-export const loader = async ({ params }) => {
-  console.log(params);
+/** components */
+import HamsterMedia from "../components/HamsterMedia";
+import CenterButton from "../components/CenterButton";
+import SectionHeading from "../components/SectionHeading";
+import GoodsMedia from "../components/GoodsMedia";
+import HospitalMedia from "../components/HospitalMedia";
 
+export const loader = async ({ params }) => {
   const res = await fetch(`http://localhost:8000/api/hamsters`);
   const data = await res.json();
-  console.log(data);
 
   return data;
-  // if (res) {
-  //   return json(data);
-  // } else {
-  //   throw new Error(data.message);
-  // }
 };
 
 export default function ProfileDashboards() {
   const ary = [1, 1, 1];
 
   const hamsters = useLoaderData();
-  console.log(hamsters);
   return (
     <div className="bg-stone-50">
+      {/* ペット情報*/}
       <div className="py-8">
-        <Title order={4} className="mb-2 px-4">
-          ペット情報
-        </Title>
+        <SectionHeading text={"ペット情報"} icon={""} />
 
         <Group className="gap-0 border-0 border-b border-solid border-gray-300 mb-3">
           {hamsters.map((hamster, index) => {
             return (
               <Group
-                className=" relative bg-white px-3 py-5 w-full border-x-0 border-t border-b-0 border-solid border-gray-300"
+                className=" relative bg-white px-3 w-full border-x-0 border-t border-b-0 border-solid border-gray-300"
                 key={index}
               >
                 <Anchor
                   href={`/dashboards/${hamster.id}`}
-                  className="flex w-full"
+                  className="flex w-full text-black"
                 >
-                  <Avatar
-                    size={56}
-                    className="rounded-full"
-                    src="https://arrown-blog.com/wp-content/uploads/2023/04/kenzou-740x378.jpeg"
-                  />
-                  <div className="ml-4 text-black grow">
-                    <Title order={6} className="mb-2">
-                      {hamster.name}
-                    </Title>
-                    <Text>
-                      <span className="inline-block mr-3">{hamster.sex}</span>
-                      <span>{hamster.birthday}</span>
-                    </Text>
-                  </div>
+                  <HamsterMedia hamster={hamster} />
+
                   <IconChevronRight
                     size="1rem"
                     color="black"
@@ -82,118 +53,35 @@ export default function ProfileDashboards() {
             );
           })}
         </Group>
-        <Flex justify={"center"}>
-          <Anchor
-            href="/dashboards/add"
-            color="primary"
-            className="bg-[#339AF0] text-white p-4 py-2 rounded-sm font-bold"
-          >
-            ペットを追加する
-            <IconPlus size={16} className="ml-4" />
-          </Anchor>
-        </Flex>
+
+        <CenterButton text={"ペットを追加する"} url={"/dashboards/add"} />
       </div>
+      {/* ペット情報*/}
 
       {/* 病院情報*/}
       <div className="py-8">
-        <Title order={4} className="mb-2 px-4 flex items-center">
-          <IconStethoscope className="mr-3" />
-          病院情報
-        </Title>
+        <SectionHeading text={"病院情報"} icon={IconStethoscope} />
 
         <Group className="gap-0 border-0 border-b border-solid border-gray-300 mb-3">
           {ary.map((item, index) => {
-            return (
-              <Group
-                className="flex items-center relative bg-white px-3 py-5 w-full border-x-0 border-t border-b-0 border-solid border-gray-300"
-                key={index}
-              >
-                <div className="w-full">
-                  <Title order={5} className="mb-4 flex items-center">
-                    <IconBuildingHospital size={24} className="mr-3" />
-                    田園調布動物病院
-                  </Title>
-                  <Text className="flex w-full">
-                    <div className="grow  inline-flex items-center text-sm ">
-                      <IconDeviceMobile className="mr-2" />
-                      電話する
-                    </div>
-                    <div className="grow inline-flex items-center text-sm ">
-                      <IconBrowser className="mr-2" />
-                      公式Webサイトへ
-                    </div>
-                  </Text>
-                </div>
-              </Group>
-            );
+            return <HospitalMedia key={index} />;
           })}
         </Group>
-        <Flex justify={"center"}>
-          <Anchor
-            href="/dashboards/hospital"
-            color="primary"
-            className="bg-[#339AF0] text-white p-4 py-2 rounded-sm font-bold"
-          >
-            病院を探す
-            <IconSearch size={16} className="ml-4" />
-          </Anchor>
-        </Flex>
+
+        <CenterButton text={"病院を探す"} url={"/dashboards/hospital"} />
       </div>
       {/* // 病院情報 */}
 
       {/* 良く購入する商品*/}
       <div className="py-8">
-        <Title order={4} className="mb-2 px-4 flex items-center">
-          <IconBasketFilled className="mr-3" />
-          よく購入する商品
-        </Title>
+        <SectionHeading text={"よく購入する商品"} icon={IconBasketFilled} />
 
         <Group className="gap-0 border-0 border-b border-solid border-gray-300 mb-3">
           {ary.map((item, index) => {
-            return (
-              <Group
-                className="flex relative bg-white px-3 py-5 w-full border-x-0 border-t border-b-0 border-solid border-gray-300"
-                key={index}
-              >
-                <Avatar
-                  size={56}
-                  className="rounded-full"
-                  src="hamster-car.jpg"
-                />
-                <div>
-                  <Title order={5} className="mb-4">
-                    GEX ジェックスごきげん快適マット
-                  </Title>
-
-                  <Button
-                    variant="outline"
-                    color="yellow"
-                    className="mr-3 px-3"
-                  >
-                    Amazonで購入
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className="text-[#BE0000] border-[#BE0000] px-3"
-                  >
-                    楽天市場で購入
-                  </Button>
-                </div>
-                <IconChevronRight
-                  size="1rem"
-                  color="black"
-                  className="absolute right-1 top-2/4 -translate-y-2/4"
-                />
-              </Group>
-            );
+            return <GoodsMedia key={index} />;
           })}
         </Group>
-        <Flex justify={"center"}>
-          <Button color="primary">
-            ハムスターグッズを探す
-            <IconSearch size={16} className="ml-4" />
-          </Button>
-        </Flex>
+        <CenterButton text={"ハムスターグッズを探す"} url={""} />
       </div>
       {/* // 良く購入する商品 */}
     </div>

@@ -15,6 +15,7 @@ import {
   Pagination,
   Group,
 } from "@mantine/core";
+
 import {
   LineChart,
   Line,
@@ -26,7 +27,9 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-import { IconChevronRight, IconPlus } from "@tabler/icons-react";
+/** components */
+import HamsterMedia from "../components/HamsterMedia";
+import CenterButton from "../components/CenterButton";
 
 const data = [
   {
@@ -78,22 +81,17 @@ export const loader = async ({ params }) => {
 
   const res = await fetch(`http://localhost:8000/api/hamsters/${params.id}`);
   const data = await res.json();
-  console.log(data);
+  console.log(data, 12);
 
   return data;
-  // if (res) {
-  //   return json(data);
-  // } else {
-  //   throw new Error(data.message);
-  // }
 };
 
 export default function ProfileDashboards() {
   const ary = [1, 1, 1];
   const [opened, { open, close }] = useDisclosure(false);
 
-  const hamsters = useLoaderData();
-  console.log(hamsters);
+  const hamster = useLoaderData();
+  console.log(hamster);
 
   return (
     <div className="bg-stone-50">
@@ -102,37 +100,11 @@ export default function ProfileDashboards() {
           ペット情報
         </Title>
         <div className="mb-8">
-          <div className="mb-4 p-4 bg-white drop-shadow-md">
-            <Flex className="mb-5" align={"center"}>
-              <div className="mr-5">
-                <Avatar
-                  size={64}
-                  className="rounded-full border border-solid border-gray-200"
-                  src="https://arrown-blog.com/wp-content/uploads/2023/04/kenzou-740x378.jpeg"
-                />
-              </div>
-              <div>
-                <Title order={4}>{hamsters.name}</Title>
-                <Text>
-                  <span className="block">ゴールデンハムスター</span>
-                  <span>オス</span>
-                  <span>1歳3ヶ月</span>
-                </Text>
-              </div>
-            </Flex>
-            <div className="">
-              <Text className="mb-2">{hamsters.introduce}</Text>
-            </div>
-          </div>
-          <Flex className="p-2" justify={"center"}>
-            <Anchor
-              href="/dashboards/masako/edit"
-              color="primary"
-              className="bg-[#339AF0] text-white p-4 py-2 rounded-sm font-bold"
-            >
-              ペットのプロフィールを編集
-            </Anchor>
-          </Flex>
+          <HamsterMedia hamster={hamster} showIntroduce={true} />
+          <CenterButton
+            text={"ペットのプロフィールを編集"}
+            url={"/dashboards/1/edit"}
+          />
         </div>
 
         <Tabs defaultValue="daily">

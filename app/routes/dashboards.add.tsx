@@ -1,10 +1,9 @@
-import { Form } from "@remix-run/react";
+import { Form, useLoaderData, useSubmit } from "@remix-run/react";
 import {
   Title,
   Avatar,
   Container,
   Anchor,
-  Button,
   Input,
   Textarea,
   Select,
@@ -12,14 +11,7 @@ import {
   Flex,
 } from "@mantine/core";
 
-import {
-  IconCameraPlus,
-  IconChevronRight,
-  IconPlus,
-  IconDeviceMobile,
-  IconBrowser,
-  IconSearch,
-} from "@tabler/icons-react";
+import { IconCameraPlus } from "@tabler/icons-react";
 
 export async function action({ request }) {
   const formData = await request.formData();
@@ -28,11 +20,16 @@ export async function action({ request }) {
   const type = formData.get("type");
   const introduce = formData.get("introduce");
   const birthday = formData.get("birthday");
-  console.log(sex, name, type, introduce, birthday);
   return null;
 }
 
 export default function ProfileDashboards() {
+  const submit = useSubmit();
+
+  const handleSubmit = (e) => {
+    submit(e.currentTarget);
+  };
+
   return (
     <div className="bg-stone-50">
       <div className="py-8">
@@ -40,7 +37,7 @@ export default function ProfileDashboards() {
           <Title order={3} className="mb-5 px-4 text-center">
             ペット情報追加
           </Title>
-          <Form method="post">
+          <Form method="post" onSubmit={handleSubmit}>
             <div className="mb-8">
               <Flex justify={"center"} className="mb-8 ">
                 <div className="relative">
@@ -61,7 +58,7 @@ export default function ProfileDashboards() {
                   <Title order={5} className="font-bold">
                     名前
                   </Title>
-                  <Input value={""} name="name" />
+                  <Input name="name" size={"md"} />
                 </Flex>
                 <Flex
                   justify={"space-between"}
@@ -105,7 +102,7 @@ export default function ProfileDashboards() {
                   <Title order={5} className="font-bold">
                     生まれた日
                   </Title>
-                  <Input value={""} name="birthday" />
+                  <Input name="birthday" size={"md"} />
                 </Flex>
                 <Flex
                   justify={"space-between"}
@@ -115,7 +112,7 @@ export default function ProfileDashboards() {
                   <Title order={5} className="mb-2 font-bold">
                     ペットの特徴メモ
                   </Title>
-                  <Textarea value={""} minRows={10} name="introduce" />
+                  <Textarea minRows={10} name="introduce" />
                 </Flex>
                 <Flex justify={"center"} className="mt-4" gap={8}>
                   <Anchor
