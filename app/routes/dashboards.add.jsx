@@ -1,4 +1,4 @@
-import { Form, useLoaderData, useSubmit } from "@remix-run/react";
+import { Form, useLoaderData, json } from "@remix-run/react";
 import {
   Title,
   Avatar,
@@ -15,31 +15,51 @@ import { IconCameraPlus } from "@tabler/icons-react";
 import config from "../../config";
 
 export async function action({ request }) {
+  const apiHost = config.API_URL;
+  // e.preventDefault();
+
   const formData = await request.formData();
   const name = formData.get("name");
   const sex = formData.get("sex");
   const type = formData.get("type");
   const introduce = formData.get("introduce");
   const birthday = formData.get("birthday");
-  return null;
+
+  const response = await fetch(`${apiHost}/api/hamsters`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ name, sex, type, introduce, birthday }),
+  });
+
+  console.log(response);
+  return await fetch(`${apiHost}/api/hamsters`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ name, sex, type, introduce, birthday }),
+  });
 }
 
 export default function ProfileDashboards() {
-  const apiHost = config.API_URL;
+  // const data = action();
+  // console.log(data);
 
-  const handleSubmit = async (e) => {
-    console.log(e);
-    e.preventDefault();
-    const response = await fetch(`${apiHost}/api/hamsters`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ key: "value" }),
-    });
+  // const handleSubmit = async (e) => {
+  //   console.log(e);
+  //   e.preventDefault();
+  //   const response = await fetch(`${apiHost}/api/hamsters`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(data),
+  //   });
 
-    console.log(response);
-  };
+  //   console.log(response);
+  // };
 
   return (
     <div className="bg-stone-50">
@@ -134,7 +154,7 @@ export default function ProfileDashboards() {
                   >
                     戻る
                   </Anchor>
-                  <Button color="primary" type="button" onClick={handleSubmit}>
+                  <Button color="primary" type="submit">
                     ペット情報を追加
                   </Button>
                 </Flex>
