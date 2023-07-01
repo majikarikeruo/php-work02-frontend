@@ -1,6 +1,5 @@
 import { useDisclosure } from "@mantine/hooks";
 import { useLoaderData } from "@remix-run/react";
-// import { json } from "@remix-run/node";
 
 import {
   Title,
@@ -10,10 +9,10 @@ import {
   Input,
   Button,
   Modal,
-  Anchor,
   Flex,
   Pagination,
   Group,
+  Textarea,
 } from "@mantine/core";
 
 import {
@@ -89,6 +88,8 @@ export const loader = async ({ params }) => {
 export default function ProfileDashboards() {
   const ary = [1, 1, 1];
   const [opened, { open, close }] = useDisclosure(false);
+  const [openedDialy, { open: openDialy, close: closeDialy }] =
+    useDisclosure(false);
 
   const hamster = useLoaderData();
   console.log(hamster);
@@ -105,8 +106,46 @@ export default function ProfileDashboards() {
             text={"ペットのプロフィールを編集"}
             url={"/dashboards/1/edit"}
           />
+          <Flex justify={"center"} className="mb-8">
+            <Button onClick={openDialy}>お世話の記録をつける</Button>
+          </Flex>
         </div>
-
+        <Modal opened={openedDialy} onClose={closeDialy} size="md">
+          お世話の記録をつける
+          <Flex
+            justify={"space-between"}
+            align={"center"}
+            className="py-3 border-0 border-b border-solid border-gray-200"
+          >
+            <Title order={5} className="font-bold">
+              日付
+            </Title>
+            <Input value={"2023/4/9"} />
+          </Flex>
+          <Flex
+            justify={"space-between"}
+            align={"center"}
+            className="py-3 border-0 border-b border-solid border-gray-200"
+          >
+            <Title order={5} className="font-bold">
+              日記の種類
+            </Title>
+            <Input value={""} />
+          </Flex>
+          <Flex
+            justify={"space-between"}
+            align={"center"}
+            className="py-3 border-0 border-b border-solid border-gray-200"
+          >
+            <Title order={5} className="font-bold">
+              日記の内容
+            </Title>
+            <Textarea value={""} />
+          </Flex>
+          <Flex justify={"center"} className="mt-4">
+            <Button color="primary">お世話記録を投稿する</Button>
+          </Flex>
+        </Modal>
         <Tabs defaultValue="daily">
           <Tabs.List>
             <Tabs.Tab value="daily" className="w-1/2 text-lg">
@@ -188,7 +227,6 @@ export default function ProfileDashboards() {
             </Flex>
           </Tabs.Panel>
         </Tabs>
-
         <Modal opened={opened} onClose={close} title="体重を記録する">
           {/* Modal content */}
           <Flex

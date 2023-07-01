@@ -11,6 +11,7 @@ import {
   Modal,
   Button,
   Flex,
+  Pagination,
 } from "@mantine/core";
 
 import {
@@ -89,6 +90,9 @@ export default function ProfileDashboards() {
           );
         })}
       </Group>
+      <Flex justify={"center"} className="mt-8" gap={8}>
+        <Pagination total={5} />
+      </Flex>
       <Flex justify={"center"}>
         <Anchor
           variant={"outline"}

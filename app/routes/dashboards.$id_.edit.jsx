@@ -1,26 +1,16 @@
 import { Outlet } from "@remix-run/react";
 import {
   Title,
-  Text,
   Avatar,
   Container,
   Anchor,
   Button,
   Input,
-  Group,
   Textarea,
   Flex,
-  Pagination,
 } from "@mantine/core";
 
-import {
-  IconCameraPlus,
-  IconChevronRight,
-  IconPlus,
-  IconDeviceMobile,
-  IconBrowser,
-  IconSearch,
-} from "@tabler/icons-react";
+import { IconCameraPlus } from "@tabler/icons-react";
 export default function ProfileDashboards() {
   return (
     <div className="bg-stone-50">
