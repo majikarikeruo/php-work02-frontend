@@ -1,4 +1,6 @@
-import { Form, useLoaderData, json } from "@remix-run/react";
+import { Form } from "@remix-run/react";
+import { redirect as redirector } from "@remix-run/node";
+
 import {
   Title,
   Avatar,
@@ -13,6 +15,24 @@ import {
 
 import { IconCameraPlus } from "@tabler/icons-react";
 import config from "../../config";
+// import { redirect } from "@remix-run/cloudflare";
+
+/**
+ * loader関数はサーバーサイドで実行される関数
+ * その基本を理解しておく必要がある
+ *
+ *
+ *
+ */
+
+/**
+ * action関数はサーバサイドで実行される関数
+ * 今回のこのファイルでいえば POSTリクエストを受け取っている場所
+ * request オブジェクトが持つプロパティやメソッドはhttps://developer.mozilla.org/en-US/docs/Web/API/Requestで確認することができます。
+ * action属性していない場合、
+ *
+ *
+ */
 
 export async function action({ request }) {
   const apiHost = config.API_URL;
@@ -21,7 +41,8 @@ export async function action({ request }) {
   const formData = await request.formData();
   const name = formData.get("name");
   const sex = formData.get("sex");
-  const type = formData.get("type");
+  const type_id = formData.get("type");
+  const user_id = formData.get("user_id");
   const introduce = formData.get("introduce");
   const birthday = formData.get("birthday");
 
@@ -30,17 +51,11 @@ export async function action({ request }) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, sex, type, introduce, birthday }),
+    body: JSON.stringify({ name, sex, type_id, user_id, introduce, birthday }),
   });
 
   console.log(response);
-  return await fetch(`${apiHost}/api/hamsters`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ name, sex, type, introduce, birthday }),
-  });
+  return response.redirect("/dashboards");
 }
 
 export default function ProfileDashboards() {
@@ -154,6 +169,7 @@ export default function ProfileDashboards() {
                   >
                     戻る
                   </Anchor>
+                  <input type="hidden" value={1} name="user_id" />
                   <Button color="primary" type="submit">
                     ペット情報を追加
                   </Button>
