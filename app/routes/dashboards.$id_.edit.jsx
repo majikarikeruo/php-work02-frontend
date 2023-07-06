@@ -1,8 +1,11 @@
+/* remix */
 import { redirect } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
+/* mantine */
 import { Title, Container } from "@mantine/core";
 
+/* components */
 import HamsterEntryForm from "../components/HamsterEntryForm";
 
 /*****************************************v
@@ -16,12 +19,12 @@ export const loader = async ({ params }) => {
   return data;
 };
 
-/**
+/*****************************************v
  * action関数はサーバサイドで実行される関数
  * 今回のこのファイルでいえば POSTリクエストを受け取っている場所
  * request オブジェクトが持つプロパティやメソッドはhttps://developer.mozilla.org/en-US/docs/Web/API/Requestで確認することができます。
  * action属性していない場合、同一ファイルの
- */
+ ****************************************/
 
 export async function action({ request }) {
   const formData = await request.formData();
@@ -48,7 +51,6 @@ export async function action({ request }) {
       birthday,
     }),
   });
-  console.log(response, "更新できた？");
   return redirect(`/dashboards/${id}`);
 }
 
@@ -56,15 +58,13 @@ export default function ProfileDashboards() {
   const hamster = useLoaderData();
 
   return (
-    <div className="bg-stone-50">
-      <div className="py-8">
-        <Container>
-          <Title order={3} className="mb-5 px-4 text-center">
-            ペット情報編集
-          </Title>
-          <HamsterEntryForm hamster={hamster} />
-        </Container>
-      </div>
+    <div className="py-8 bg-stone-50">
+      <Container>
+        <Title order={3} className="mb-5 px-4 text-center">
+          ペット情報編集
+        </Title>
+        <HamsterEntryForm hamster={hamster} />
+      </Container>
     </div>
   );
 }

@@ -17,11 +17,13 @@ import { IconCameraPlus } from "@tabler/icons-react";
 
 export default function HamsterEntryForm({ hamster }) {
   /** 文字型にしないとselectの初期値として設定できない */
-
-  const [typeId, setTypeId] = useState(hamster.sex.toString());
-  const [sex, setSex] = useState(hamster.type_id.toString());
-  const [birthday, setBirthday] = useState(hamster.birthday.toString());
-  const [introduce, setIntroduce] = useState(hamster.introduce.toString());
+  const [name, setName] = useState(hamster ? hamster.name : "");
+  const [typeId, setTypeId] = useState(
+    hamster ? hamster.type_id.toString() : ""
+  );
+  const [sex, setSex] = useState(hamster ? hamster.sex.toString() : "");
+  const [birthday, setBirthday] = useState(hamster ? hamster.birthday : "");
+  const [introduce, setIntroduce] = useState(hamster ? hamster.introduce : "");
 
   return (
     <Form method="post">
@@ -45,7 +47,12 @@ export default function HamsterEntryForm({ hamster }) {
             <Title order={5} className="font-bold">
               名前
             </Title>
-            <Input name="name" size={"md"} value={hamster.name} />
+            <Input
+              name="name"
+              size={"md"}
+              value={name}
+              onChange={(e) => setName(e.currentTarget.value)}
+            />
           </Flex>
           <Flex
             justify={"space-between"}
@@ -125,7 +132,9 @@ export default function HamsterEntryForm({ hamster }) {
               戻る
             </Anchor>
             <input type="hidden" value={1} name="user_id" />
-            {hamster.id && <input type="hidden" value={hamster.id} name="id" />}
+            {hamster && hamster.id && (
+              <input type="hidden" value={hamster.id} name="id" />
+            )}
             <Button color="primary" type="submit">
               ペット情報を追加
             </Button>
