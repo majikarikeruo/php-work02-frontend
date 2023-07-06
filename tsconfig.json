@@ -1,5 +1,5 @@
 {
-  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx", "app/routes/dashboards.feed.jsx", "app/routes/dashboards.add.jsx", "app/routes/dashboards.$id.jsx", "app/routes/dashboards.$id.diary.jsx", "app/routes/dashboards.hospital.jsx", "app/routes/dashboards.profile_.edit.jsx", "app/routes/dashboards.profile.jsx", "app/routes/dashboards.$id_.edit.jsx", "app/routes/dashboards.$id.diary.$date.jsx", "app/routes/dashboards._index.jsx", "app/routes/_index.tsx", "app/routes/_auth.login.jsx", "app/routes/_auth.logout.jsx", "app/routes/_auth.signup.jsx", "app/routes/_auth.jsx", "app/entry.client.jsx", "app/entry.server.tsx", "app/utils/constant.js", "app/routes/layout/footer.jsx", "app/routes/layout/header.jsx"],
+  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2019"],
     "isolatedModules": true,

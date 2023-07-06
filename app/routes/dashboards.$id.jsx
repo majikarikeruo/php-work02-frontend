@@ -75,17 +75,18 @@ const data = [
   },
 ];
 
+/*****************************************v
+ * loader関数はサーバーサイドで実行される関数
+ * その基本を理解しておく必要がある
+ ****************************************/
 export const loader = async ({ params }) => {
-  console.log(params);
-
-  const res = await fetch(`http://localhost:8000/api/hamsters/${params.id}`);
+  const res = await fetch(`${process.env.API_HOST}api/hamsters/${params.id}`);
   const data = await res.json();
-  console.log(data, 12);
 
   return data;
 };
 
-export default function ProfileDashboards() {
+export default function DashboardsId() {
   const ary = [1, 1, 1];
   const [opened, { open, close }] = useDisclosure(false);
   const [openedDialy, { open: openDialy, close: closeDialy }] =
