@@ -4,7 +4,7 @@ import { IconStethoscope, IconBasketFilled } from "@tabler/icons-react";
 
 /** components */
 import HamsterMedia from "../components/HamsterMedia";
-import CenterButton from "../components/CenterButton";
+import CenterButton from "../components/common/CenterButton";
 import SectionHeading from "../components/SectionHeading";
 import GoodsMedia from "../components/GoodsMedia";
 import HospitalMedia from "../components/HospitalMedia";

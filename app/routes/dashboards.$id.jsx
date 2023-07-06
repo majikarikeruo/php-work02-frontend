@@ -1,5 +1,6 @@
 import { useDisclosure } from "@mantine/hooks";
 import { useLoaderData } from "@remix-run/react";
+import { constants } from "../utils/constant";
 
 import {
   Title,
@@ -13,6 +14,7 @@ import {
   Pagination,
   Group,
   Textarea,
+  Paper,
 } from "@mantine/core";
 
 import {
@@ -27,8 +29,9 @@ import {
 } from "recharts";
 
 /** components */
-import HamsterMedia from "../components/HamsterMedia";
-import CenterButton from "../components/CenterButton";
+import PetDeleteDialog from "../components/pet/PetDeleteDialog";
+import CenterButton from "../components/common/CenterButton";
+import { redirect } from "@remix-run/node";
 
 const data = [
   {
@@ -75,6 +78,21 @@ const data = [
   },
 ];
 
+export async function action({ request }) {
+  const formData = await request.formData();
+  const id = formData.get("id");
+
+  const response = await fetch(`${process.env.API_HOST}api/hamsters/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ id }),
+  });
+
+  return redirect(`/dashboards`);
+}
+
 /*****************************************v
  * loader関数はサーバーサイドで実行される関数
  * その基本を理解しておく必要がある
@@ -92,25 +110,64 @@ export default function DashboardsId() {
   const [openedDialy, { open: openDialy, close: closeDialy }] =
     useDisclosure(false);
 
+  const [
+    openedDeleteDialog,
+    { open: openDeleteDialog, close: closeDeleteDialog },
+  ] = useDisclosure(false);
+
   const hamster = useLoaderData();
-  console.log(hamster);
 
   return (
     <div className="bg-stone-50">
-      <div className="py-8">
-        <Title order={3} className="mb-5 px-4 text-center">
-          ペット情報
-        </Title>
-        <div className="mb-8">
-          <HamsterMedia hamster={hamster} showIntroduce={true} />
-          <CenterButton
-            text={"ペットのプロフィールを編集"}
-            url={"/dashboards/1/edit"}
-          />
-          <Flex justify={"center"} className="mb-8">
-            <Button onClick={openDialy}>お世話の記録をつける</Button>
-          </Flex>
+      <div className="py-8 pt-4">
+        <div className="mb-8 mx-3">
+          <Paper
+            radius="md"
+            className="px-4"
+            withBorder
+            p="lg"
+            sx={(theme) => ({
+              backgroundColor:
+                theme.colorScheme === "dark"
+                  ? theme.colors.dark[8]
+                  : theme.white,
+            })}
+          >
+            <Avatar
+              src="https://arrown-blog.com/wp-content/uploads/2023/04/kenzou-740x378.jpeg"
+              size={120}
+              radius={120}
+              mx="auto"
+            />
+            <Title order={3} ta="center" fz="lg" weight={700} mt="md">
+              {hamster.name}
+            </Title>
+            <Text mt="md" mb="lg">
+              <span className="block">ゴールデンハムスター</span>
+              <span> {constants.sex[hamster.sex]}</span>
+              <span>{hamster.birthday}</span>
+            </Text>
+            <Button fullWidth size="md" mt="md" onClick={openDialy}>
+              お世話の記録をする
+            </Button>
+            <CenterButton
+              text={"プロフィールを編集"}
+              url={`/dashboards/${hamster.id}/edit`}
+              variant={"outline"}
+            />
+            <Button
+              fullWidth
+              variant="outline"
+              size="md"
+              mt="md"
+              color="red"
+              onClick={openDeleteDialog}
+            >
+              ペット情報を削除
+            </Button>
+          </Paper>
         </div>
+
         <Modal opened={openedDialy} onClose={closeDialy} size="md">
           お世話の記録をつける
           <Flex
@@ -147,15 +204,25 @@ export default function DashboardsId() {
             <Button color="primary">お世話記録を投稿する</Button>
           </Flex>
         </Modal>
+
+        <PetDeleteDialog
+          hamster={hamster}
+          opened={openedDeleteDialog}
+          onClose={closeDeleteDialog}
+          size="md"
+        />
+
         <Tabs defaultValue="daily">
+          {/* TabsList */}
           <Tabs.List>
-            <Tabs.Tab value="daily" className="w-1/2 text-lg">
+            <Tabs.Tab value="daily" className="w-1/2 text-base">
               世話の記録
             </Tabs.Tab>
-            <Tabs.Tab value="weight" className="w-1/2 text-lg">
+            <Tabs.Tab value="weight" className="w-1/2 text-base">
               体重
             </Tabs.Tab>
           </Tabs.List>
+          {/* // TabsList */}
 
           <Tabs.Panel value="daily" pt="xs" className="p-0">
             <Group className="mb-4 border-t-0 border-x-0 border-b border-solid border-gray-300 gap-0">
@@ -164,27 +231,22 @@ export default function DashboardsId() {
                   <Group
                     className="gap-0 relative bg-white px-3 py-3 w-full border-x-0 border-t border-b-0 border-solid border-gray-300"
                     key={index}
+                    noWrap
                   >
-                    <Flex align={"center"}>
-                      <Avatar
-                        size={64}
-                        className="rounded-full border border-solid border-gray-200 mr-6"
-                        src="https://kosugelian.net/images/stamp18.png"
-                      />
-                      <Group className="gap-0">
-                        <Title order={4} className="mb-2">
-                          餌やり
-                        </Title>
-                        <Text className="text-[14px] mb-2">
-                          ハムスターフード、もやし、ウエハース、かぼちゃ、とうもろこし
-                        </Text>
-                        <Text>
-                          <span className="inline-block mr-6 text-[14px] font-normal">
-                            8月30日
-                          </span>
-                        </Text>
-                      </Group>
-                    </Flex>
+                    <Avatar
+                      size={64}
+                      className="rounded-full border border-solid border-gray-200 mr-6"
+                      src="https://kosugelian.net/images/stamp18.png"
+                    />
+                    <div>
+                      <Title order={4} className="mb-2">
+                        餌やり
+                      </Title>
+                      <Text fz="sm" className="mb-2">
+                        ハムスターフード、もやし、ウエハース、かぼちゃ、とうもろこし
+                      </Text>
+                      <Text fz="xs">8月30日</Text>
+                    </div>
                   </Group>
                 );
               })}
