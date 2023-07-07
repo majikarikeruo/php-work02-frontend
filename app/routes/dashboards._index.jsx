@@ -1,5 +1,11 @@
+/** remix */
 import { useLoaderData } from "@remix-run/react";
-import { Group } from "@mantine/core";
+import { json } from "@remix-run/node";
+
+/** Mantine */
+import { Container, Group } from "@mantine/core";
+
+/** library */
 import { IconStethoscope, IconBasketFilled } from "@tabler/icons-react";
 
 /** components */
@@ -16,14 +22,14 @@ import HospitalMedia from "../components/HospitalMedia";
 export const loader = async ({ params }) => {
   const res = await fetch(`${process.env.API_HOST}api/hamsters`);
   const data = await res.json();
-
+  // console.log(data);
   return data;
 };
 
 export default function ProfileDashboards() {
   const ary = [1, 1, 1];
-
   const hamsters = useLoaderData();
+
   return (
     <div className="bg-stone-50">
       {/* ペット情報*/}
@@ -36,7 +42,13 @@ export default function ProfileDashboards() {
           ))}
         </Group>
 
-        <CenterButton text={"ペットを追加する"} url={"/dashboards/add"} />
+        <Container>
+          <CenterButton
+            text={"ペットを追加する"}
+            url={"/dashboards/add"}
+            variant={"filled"}
+          />
+        </Container>
       </div>
       {/* ペット情報*/}
 
@@ -49,8 +61,9 @@ export default function ProfileDashboards() {
             <HospitalMedia key={index} />
           ))}
         </Group>
-
-        <CenterButton text={"病院を探す"} url={"/dashboards/hospital"} />
+        <Container>
+          <CenterButton text={"病院を探す"} url={"/dashboards/hospital"} />{" "}
+        </Container>
       </div>
       {/* // 病院情報 */}
 
@@ -63,7 +76,10 @@ export default function ProfileDashboards() {
             <GoodsMedia key={index} />
           ))}
         </Group>
-        <CenterButton text={"ハムスターグッズを探す"} url={""} />
+
+        <Container>
+          <CenterButton text={"ハムスターグッズを探す"} url={""} />{" "}
+        </Container>
       </div>
       {/* // 良く購入する商品 */}
     </div>

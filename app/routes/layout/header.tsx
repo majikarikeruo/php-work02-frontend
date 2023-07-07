@@ -1,5 +1,8 @@
-import { useLoaderData } from "@remix-run/react";
+/** remix */
+import { useFetcher } from "@remix-run/react";
+import { useEffect } from "react";
 
+/** Mantine */
 import {
   Header,
   Container,
@@ -12,30 +15,27 @@ import {
   Text,
   Group,
 } from "@mantine/core";
+
+/** library */
 import {
   IconPawFilled,
   IconHome2,
   IconUsers,
-  IconDatabaseImport,
   IconBuildingHospital,
   IconBasketFilled,
 } from "@tabler/icons-react";
 import { useDisclosure } from "@mantine/hooks";
 
-import HamsterMedia from "../../components/HamsterMedia";
-
-export const loader = async ({ params }) => {
-  const res = await fetch(`http://localhost:8000/api/hamsters`);
-  const data = await res.json();
-
-  return data;
-};
-
 export function LayoutHeader() {
   const [opened, { open, close }] = useDisclosure(false);
   const [openedPet, { open: openPet, close: closePet }] = useDisclosure(false);
 
-  const hamsters = useLoaderData();
+  const fetcherHamsters = useFetcher();
+
+  useEffect(() => {
+    const res = fetcherHamsters.load("/api/hamsters?index");
+    console.log(process);
+  }, []);
 
   return (
     <>
@@ -121,7 +121,7 @@ export function LayoutHeader() {
 
         <Drawer.Body className="p-0">
           <Group className="gap-0">
-            {[1, 1, 1].map((item, index) => (
+            {/* {hamsters.map((hamster, index) => (
               <Flex
                 align={"center"}
                 key={index}
@@ -141,7 +141,7 @@ export function LayoutHeader() {
                   <Text fz={"xs"}>ロボロフスキーハムスター</Text>
                 </div>
               </Flex>
-            ))}
+            ))} */}
           </Group>
         </Drawer.Body>
       </Drawer>
