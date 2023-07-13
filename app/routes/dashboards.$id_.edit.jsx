@@ -28,13 +28,7 @@ export const loader = async ({ params }) => {
 
 export async function action({ request }) {
   const formData = await request.formData();
-  const name = formData.get("name");
-  const sex = formData.get("sex");
-  const type_id = formData.get("type");
-  const id = formData.get("id");
-  const user_id = formData.get("user_id");
-  const introduce = formData.get("introduce");
-  const birthday = formData.get("birthday");
+  const hamsterData = Object.fromEntries(formData);
 
   // const response = await fetch(`${process.env.API_HOST}api/hamsters/${id}`, {
   //   method: "PUT",

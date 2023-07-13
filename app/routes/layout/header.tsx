@@ -26,7 +26,9 @@ import {
 } from "@tabler/icons-react";
 import { useDisclosure } from "@mantine/hooks";
 
-export function LayoutHeader() {
+import LogoutForm from "../../components/common/LogoutForm";
+
+export function LayoutHeader({ user }) {
   const [opened, { open, close }] = useDisclosure(false);
   const [openedPet, { open: openPet, close: closePet }] = useDisclosure(false);
 
@@ -59,41 +61,45 @@ export function LayoutHeader() {
               />
               <div>
                 <Text fz={"md"} className="font-bold">
-                  こすげたつや
+                  {user.name}
                 </Text>
-                <Text fz={"xs"}>こすげたつや</Text>
               </div>
             </Flex>
           </Navbar.Section>
           <Navbar.Section className="p-0">
             <a
-              className="p-3 no-underline block text-gray-800 text-sm inline-flex items-center"
+              className="p-3 no-underline text-gray-800 text-sm inline-flex items-center"
               href="/dashboards"
             >
               <IconHome2 size="1rem" stroke={1.5} />
               <span className="ml-3">ダッシュボード</span>
             </a>
             <a
-              className="p-3 no-underline block text-gray-800 text-sm inline-flex items-center"
+              className="p-3 no-underline text-gray-800 text-sm inline-flex items-center"
               href="/dashboards/profile"
             >
               <IconUsers size="1rem" stroke={1.5} />
               <span className="ml-3">プロフィール情報</span>
             </a>
             <a
-              className="p-3 no-underline block text-gray-800 text-sm inline-flex items-center"
+              className="p-3 no-underline text-gray-800 text-sm inline-flex items-center"
               href="/dashboards/profile/edit"
             >
               <IconBuildingHospital size="1rem" stroke={1.5} />
               <span className="ml-3">病院検索</span>
             </a>
             <a
-              className="p-3 no-underline block text-gray-800 text-sm inline-flex items-center"
+              className="p-3 no-underline text-gray-800 text-sm inline-flex items-center"
               href="/dashboards/profile/edit"
             >
               <IconBasketFilled size="1rem" stroke={1.5} />
               <span className="ml-3">ハムスターグッズ検索</span>
             </a>
+
+            {/* テストログアウト */}
+            <div className="mt-10">
+              <LogoutForm user={user} />
+            </div>
           </Navbar.Section>
         </Navbar>
       </Drawer>

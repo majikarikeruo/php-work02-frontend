@@ -1,6 +1,7 @@
+/* remix */
 import { Form } from "@remix-run/react";
-import { useState } from "react";
 
+/* mantine */
 import {
   Title,
   Avatar,
@@ -13,18 +14,10 @@ import {
   Flex,
 } from "@mantine/core";
 
+/* library */
 import { IconCameraPlus } from "@tabler/icons-react";
 
-export default function HamsterEntryForm({ hamster }) {
-  /** 文字型にしないとselectの初期値として設定できない */
-  const [name, setName] = useState(hamster ? hamster.name : "");
-  const [typeId, setTypeId] = useState(
-    hamster ? hamster.type_id.toString() : ""
-  );
-  const [sex, setSex] = useState(hamster ? hamster.sex.toString() : "");
-  const [birthday, setBirthday] = useState(hamster ? hamster.birthday : "");
-  const [introduce, setIntroduce] = useState(hamster ? hamster.introduce : "");
-
+export default function HamsterEntryForm({ user }) {
   return (
     <Form method="post">
       <div className="mb-8">
@@ -47,12 +40,7 @@ export default function HamsterEntryForm({ hamster }) {
             <Title order={5} className="font-bold">
               名前
             </Title>
-            <Input
-              name="name"
-              size={"md"}
-              value={name}
-              onChange={(e) => setName(e.currentTarget.value)}
-            />
+            <Input name="name" size={"md"} />
           </Flex>
           <Flex
             justify={"space-between"}
@@ -63,10 +51,8 @@ export default function HamsterEntryForm({ hamster }) {
               性別
             </Title>
             <Select
-              name="sex"
+              name="sexId"
               placeholder="選択してください"
-              defaultValue={sex}
-              onChange={(e) => setSex(e.currentTarget.value)}
               data={[
                 { value: "1", label: "オス" },
                 { value: "2", label: "メス" },
@@ -82,10 +68,8 @@ export default function HamsterEntryForm({ hamster }) {
               種類
             </Title>
             <Select
-              name="type"
+              name="kindId"
               placeholder="選択してください"
-              defaultValue={typeId}
-              onChange={(e) => setTypeId(e)}
               data={[
                 { value: "1", label: "ゴールデンハムスター" },
                 { value: "2", label: "ジャンガリアンハムスター" },
@@ -100,12 +84,7 @@ export default function HamsterEntryForm({ hamster }) {
             <Title order={5} className="font-bold">
               生まれた日
             </Title>
-            <Input
-              name="birthday"
-              size={"md"}
-              value={birthday}
-              onChange={(e) => setBirthday(e.currentTarget.value)}
-            />
+            <Input name="birthday" size={"md"} />
           </Flex>
           <Flex
             justify={"space-between"}
@@ -115,12 +94,7 @@ export default function HamsterEntryForm({ hamster }) {
             <Title order={5} className="mb-2 font-bold">
               ペットの特徴メモ
             </Title>
-            <Textarea
-              minRows={10}
-              name="introduce"
-              value={introduce}
-              onChange={(e) => setIntroduce(e.currentTarget.value)}
-            />
+            <Textarea minRows={10} name="introduce" />
           </Flex>
           <Flex justify={"center"} className="mt-4" gap={8}>
             <Anchor
@@ -131,10 +105,10 @@ export default function HamsterEntryForm({ hamster }) {
             >
               戻る
             </Anchor>
-            <input type="hidden" value={1} name="user_id" />
-            {hamster && hamster.id && (
+            <input type="hidden" value={user.id} name="userId" />
+            {/* {hamster && hamster.id && (
               <input type="hidden" value={hamster.id} name="id" />
-            )}
+            )} */}
             <Button color="primary" type="submit">
               ペット情報を追加
             </Button>
