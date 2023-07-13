@@ -17,98 +17,44 @@ import {
   Paper,
 } from "@mantine/core";
 
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
+// import {
+//   LineChart,
+//   Line,
+//   XAxis,
+//   YAxis,
+//   CartesianGrid,
+//   Tooltip,
+//   Legend,
+//   ResponsiveContainer,
+// } from "recharts";
 
 /** components */
 import PetDeleteDialog from "../components/pet/PetDeleteDialog";
 import CenterButton from "../components/common/CenterButton";
 import { redirect } from "@remix-run/node";
 
-const data = [
-  {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
-
-export async function action({ request }) {
-  const formData = await request.formData();
-  const id = formData.get("id");
-
-  // const response = await fetch(`${process.env.API_HOST}api/hamsters/${id}`, {
-  //   method: "DELETE",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify({ id }),
-  // });
-
-  return redirect(`/dashboards`);
-}
+/** server */
+import { db } from "../db.server";
 
 /*****************************************v
  * loader関数はサーバーサイドで実行される関数
  * その基本を理解しておく必要がある
  ****************************************/
 export const loader = async ({ params }) => {
-  const res = await fetch(`${process.env.API_HOST}api/hamsters/${params.id}`);
-  const data = await res.json();
+  console.log(params, 1);
+  const hamsters = await db.hamster.findUnique({
+    where: {
+      id: parseInt(params.id),
+    },
+  });
 
-  return data;
+  return hamsters;
 };
 
 export default function DashboardsId() {
-  const ary = [1, 1, 1];
-  const [opened, { open, close }] = useDisclosure(false);
-  const [openedDialy, { open: openDialy, close: closeDialy }] =
-    useDisclosure(false);
+  // const [opened, { open, close }] = useDisclosure(false);
+  // const [openedDialy, { open: openDialy, close: closeDialy }] =
+  //   useDisclosure(false);
 
   const [
     openedDeleteDialog,
@@ -116,6 +62,7 @@ export default function DashboardsId() {
   ] = useDisclosure(false);
 
   const hamster = useLoaderData();
+  console.log(hamster, 2);
 
   return (
     <div className="bg-stone-50">
@@ -147,7 +94,7 @@ export default function DashboardsId() {
               <span> {constants.sex[hamster.sex]}</span>
               <span>{hamster.birthday}</span>
             </Text>
-            <Button fullWidth size="md" mt="md" onClick={openDialy}>
+            <Button fullWidth size="md" mt="md" onClick={""}>
               お世話の記録をする
             </Button>
             <CenterButton
@@ -168,7 +115,7 @@ export default function DashboardsId() {
           </Paper>
         </div>
 
-        <Modal opened={openedDialy} onClose={closeDialy} size="md">
+        {/* <Modal opened={openedDialy} onClose={closeDialy} size="md">
           お世話の記録をつける
           <Flex
             justify={"space-between"}
@@ -203,7 +150,7 @@ export default function DashboardsId() {
           <Flex justify={"center"} className="mt-4">
             <Button color="primary">お世話記録を投稿する</Button>
           </Flex>
-        </Modal>
+        </Modal> */}
 
         <PetDeleteDialog
           hamster={hamster}
@@ -212,19 +159,19 @@ export default function DashboardsId() {
           size="md"
         />
 
-        <Tabs defaultValue="daily">
-          {/* TabsList */}
-          <Tabs.List>
+        {/* <Tabs defaultValue="daily"> */}
+        {/* TabsList */}
+        {/* <Tabs.List>
             <Tabs.Tab value="daily" className="w-1/2 text-base">
               世話の記録
             </Tabs.Tab>
             <Tabs.Tab value="weight" className="w-1/2 text-base">
               体重
             </Tabs.Tab>
-          </Tabs.List>
-          {/* // TabsList */}
+          </Tabs.List> */}
+        {/* // TabsList */}
 
-          <Tabs.Panel value="daily" pt="xs" className="p-0">
+        {/* <Tabs.Panel value="daily" pt="xs" className="p-0">
             <Group className="mb-4 border-t-0 border-x-0 border-b border-solid border-gray-300 gap-0">
               {ary.map((item, index) => {
                 return (
@@ -254,10 +201,10 @@ export default function DashboardsId() {
             <Flex justify={"center"} className="mt-8" gap={8}>
               <Pagination total={5} />
             </Flex>
-          </Tabs.Panel>
+          </Tabs.Panel> */}
 
-          {/* 体重 */}
-          <Tabs.Panel value="weight" pt="xs" className="p-4">
+        {/* 体重 */}
+        {/* <Tabs.Panel value="weight" pt="xs" className="p-4">
             <Title order={6} className="mb-6">
               2023年4月
             </Title>
@@ -289,10 +236,10 @@ export default function DashboardsId() {
               <Button onClick={open}>体重を記録する</Button>
             </Flex>
           </Tabs.Panel>
-        </Tabs>
-        <Modal opened={opened} onClose={close} title="体重を記録する">
-          {/* Modal content */}
-          <Flex
+        </Tabs> */}
+        {/* <Modal opened={opened} onClose={close} title="体重を記録する"> */}
+        {/* Modal content */}
+        {/* <Flex
             justify={"space-between"}
             align={"center"}
             className="py-3 border-0 border-b border-solid border-gray-200"
@@ -315,8 +262,23 @@ export default function DashboardsId() {
           <Flex justify={"center"} className="mt-4">
             <Button color="primary">体重を入力する</Button>
           </Flex>
-        </Modal>
+        </Modal> */}
       </div>
     </div>
   );
+}
+
+export async function action({ request }) {
+  const formData = await request.formData();
+  const id = parseInt(formData.get("id"));
+
+  const res = await db.hamster.delete({
+    where: {
+      id,
+    },
+  });
+
+  console.log(res);
+
+  return redirect(`/dashboards`);
 }

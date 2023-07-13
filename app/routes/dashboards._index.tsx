@@ -23,7 +23,7 @@ import HospitalMedia from "../components/HospitalMedia";
 
 export default function DashboardsIndex() {
   const { hamsters } = useRouteLoaderData("routes/dashboards");
-  console.log(hamsters);
+  console.log(hamsters, 1);
 
   return (
     <>

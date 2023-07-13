@@ -1580,7 +1580,7 @@ function SectionHeading({ text, icon: Icon }) {
 var import_jsx_dev_runtime14 = require("react/jsx-dev-runtime");
 function DashboardsIndex() {
   let { hamsters } = (0, import_react11.useRouteLoaderData)("routes/dashboards");
-  return console.log(hamsters), /* @__PURE__ */ (0, import_jsx_dev_runtime14.jsxDEV)(import_jsx_dev_runtime14.Fragment, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime14.jsxDEV)("div", { className: "bg-stone-50", children: /* @__PURE__ */ (0, import_jsx_dev_runtime14.jsxDEV)("div", { className: "py-8", children: [
+  return console.log(hamsters, 1), /* @__PURE__ */ (0, import_jsx_dev_runtime14.jsxDEV)(import_jsx_dev_runtime14.Fragment, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime14.jsxDEV)("div", { className: "bg-stone-50", children: /* @__PURE__ */ (0, import_jsx_dev_runtime14.jsxDEV)("div", { className: "py-8", children: [
     /* @__PURE__ */ (0, import_jsx_dev_runtime14.jsxDEV)(SectionHeading, { text: "\u30DA\u30C3\u30C8\u60C5\u5831", icon: "" }, void 0, !1, {
       fileName: "app/routes/dashboards._index.tsx",
       lineNumber: 33,
@@ -1697,7 +1697,7 @@ __export(dashboards_id_exports, {
   loader: () => loader3
 });
 var import_hooks3 = require("@mantine/hooks"), import_react13 = require("@remix-run/react");
-var import_core13 = require("@mantine/core"), import_recharts = require("recharts");
+var import_core13 = require("@mantine/core");
 
 // app/components/pet/PetDeleteDialog.tsx
 var import_core12 = require("@mantine/core"), import_react12 = require("@remix-run/react"), import_jsx_dev_runtime16 = require("react/jsx-dev-runtime");
@@ -1756,61 +1756,18 @@ function PetDeleteDialog({ hamster, opened, onClose }) {
 }
 
 // app/routes/dashboards.$id.jsx
-var import_node4 = require("@remix-run/node"), import_jsx_dev_runtime17 = require("react/jsx-dev-runtime"), data2 = [
-  {
-    name: "Page A",
-    uv: 4e3,
-    pv: 2400,
-    amt: 2400
-  },
-  {
-    name: "Page B",
-    uv: 3e3,
-    pv: 1398,
-    amt: 2210
-  },
-  {
-    name: "Page C",
-    uv: 2e3,
-    pv: 9800,
-    amt: 2290
-  },
-  {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
-    amt: 2e3
-  },
-  {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181
-  },
-  {
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500
-  },
-  {
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100
+var import_node4 = require("@remix-run/node");
+var import_jsx_dev_runtime17 = require("react/jsx-dev-runtime"), loader3 = async ({ params }) => (console.log(params, 1), await db.hamster.findUnique({
+  where: {
+    id: parseInt(params.id)
   }
-];
-async function action3({ request }) {
-  let id2 = (await request.formData()).get("id");
-  return (0, import_node4.redirect)("/dashboards");
-}
-var loader3 = async ({ params }) => await (await fetch(`${process.env.API_HOST}api/hamsters/${params.id}`)).json();
+}));
 function DashboardsId() {
-  let ary = [1, 1, 1], [opened, { open, close }] = (0, import_hooks3.useDisclosure)(!1), [openedDialy, { open: openDialy, close: closeDialy }] = (0, import_hooks3.useDisclosure)(!1), [
+  let [
     openedDeleteDialog,
     { open: openDeleteDialog, close: closeDeleteDialog }
   ] = (0, import_hooks3.useDisclosure)(!1), hamster = (0, import_react13.useLoaderData)();
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)("div", { className: "bg-stone-50", children: /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)("div", { className: "py-8 pt-4", children: [
+  return console.log(hamster, 2), /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)("div", { className: "bg-stone-50", children: /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)("div", { className: "py-8 pt-4", children: [
     /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)("div", { className: "mb-8 mx-3", children: /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(
       import_core13.Paper,
       {
@@ -1834,20 +1791,20 @@ function DashboardsId() {
             !1,
             {
               fileName: "app/routes/dashboards.$id.jsx",
-              lineNumber: 136,
+              lineNumber: 83,
               columnNumber: 13
             },
             this
           ),
           /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Title, { order: 3, ta: "center", fz: "lg", weight: 700, mt: "md", children: hamster.name }, void 0, !1, {
             fileName: "app/routes/dashboards.$id.jsx",
-            lineNumber: 142,
+            lineNumber: 89,
             columnNumber: 13
           }, this),
           /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Text, { mt: "md", mb: "lg", children: [
             /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)("span", { className: "block", children: "\u30B4\u30FC\u30EB\u30C7\u30F3\u30CF\u30E0\u30B9\u30BF\u30FC" }, void 0, !1, {
               fileName: "app/routes/dashboards.$id.jsx",
-              lineNumber: 146,
+              lineNumber: 93,
               columnNumber: 15
             }, this),
             /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)("span", { children: [
@@ -1855,22 +1812,22 @@ function DashboardsId() {
               constants.sex[hamster.sex]
             ] }, void 0, !0, {
               fileName: "app/routes/dashboards.$id.jsx",
-              lineNumber: 147,
+              lineNumber: 94,
               columnNumber: 15
             }, this),
             /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)("span", { children: hamster.birthday }, void 0, !1, {
               fileName: "app/routes/dashboards.$id.jsx",
-              lineNumber: 148,
+              lineNumber: 95,
               columnNumber: 15
             }, this)
           ] }, void 0, !0, {
             fileName: "app/routes/dashboards.$id.jsx",
-            lineNumber: 145,
+            lineNumber: 92,
             columnNumber: 13
           }, this),
-          /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Button, { fullWidth: !0, size: "md", mt: "md", onClick: openDialy, children: "\u304A\u4E16\u8A71\u306E\u8A18\u9332\u3092\u3059\u308B" }, void 0, !1, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Button, { fullWidth: !0, size: "md", mt: "md", onClick: "", children: "\u304A\u4E16\u8A71\u306E\u8A18\u9332\u3092\u3059\u308B" }, void 0, !1, {
             fileName: "app/routes/dashboards.$id.jsx",
-            lineNumber: 150,
+            lineNumber: 97,
             columnNumber: 13
           }, this),
           /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(
@@ -1884,7 +1841,7 @@ function DashboardsId() {
             !1,
             {
               fileName: "app/routes/dashboards.$id.jsx",
-              lineNumber: 153,
+              lineNumber: 100,
               columnNumber: 13
             },
             this
@@ -1904,7 +1861,7 @@ function DashboardsId() {
             !1,
             {
               fileName: "app/routes/dashboards.$id.jsx",
-              lineNumber: 158,
+              lineNumber: 105,
               columnNumber: 13
             },
             this
@@ -1915,113 +1872,13 @@ function DashboardsId() {
       !0,
       {
         fileName: "app/routes/dashboards.$id.jsx",
-        lineNumber: 124,
+        lineNumber: 71,
         columnNumber: 11
       },
       this
     ) }, void 0, !1, {
       fileName: "app/routes/dashboards.$id.jsx",
-      lineNumber: 123,
-      columnNumber: 9
-    }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Modal, { opened: openedDialy, onClose: closeDialy, size: "md", children: [
-      "\u304A\u4E16\u8A71\u306E\u8A18\u9332\u3092\u3064\u3051\u308B",
-      /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(
-        import_core13.Flex,
-        {
-          justify: "space-between",
-          align: "center",
-          className: "py-3 border-0 border-b border-solid border-gray-200",
-          children: [
-            /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Title, { order: 5, className: "font-bold", children: "\u65E5\u4ED8" }, void 0, !1, {
-              fileName: "app/routes/dashboards.$id.jsx",
-              lineNumber: 178,
-              columnNumber: 13
-            }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Input, { value: "2023/4/9" }, void 0, !1, {
-              fileName: "app/routes/dashboards.$id.jsx",
-              lineNumber: 181,
-              columnNumber: 13
-            }, this)
-          ]
-        },
-        void 0,
-        !0,
-        {
-          fileName: "app/routes/dashboards.$id.jsx",
-          lineNumber: 173,
-          columnNumber: 11
-        },
-        this
-      ),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(
-        import_core13.Flex,
-        {
-          justify: "space-between",
-          align: "center",
-          className: "py-3 border-0 border-b border-solid border-gray-200",
-          children: [
-            /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Title, { order: 5, className: "font-bold", children: "\u65E5\u8A18\u306E\u7A2E\u985E" }, void 0, !1, {
-              fileName: "app/routes/dashboards.$id.jsx",
-              lineNumber: 188,
-              columnNumber: 13
-            }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Input, { value: "" }, void 0, !1, {
-              fileName: "app/routes/dashboards.$id.jsx",
-              lineNumber: 191,
-              columnNumber: 13
-            }, this)
-          ]
-        },
-        void 0,
-        !0,
-        {
-          fileName: "app/routes/dashboards.$id.jsx",
-          lineNumber: 183,
-          columnNumber: 11
-        },
-        this
-      ),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(
-        import_core13.Flex,
-        {
-          justify: "space-between",
-          align: "center",
-          className: "py-3 border-0 border-b border-solid border-gray-200",
-          children: [
-            /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Title, { order: 5, className: "font-bold", children: "\u65E5\u8A18\u306E\u5185\u5BB9" }, void 0, !1, {
-              fileName: "app/routes/dashboards.$id.jsx",
-              lineNumber: 198,
-              columnNumber: 13
-            }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Textarea, { value: "" }, void 0, !1, {
-              fileName: "app/routes/dashboards.$id.jsx",
-              lineNumber: 201,
-              columnNumber: 13
-            }, this)
-          ]
-        },
-        void 0,
-        !0,
-        {
-          fileName: "app/routes/dashboards.$id.jsx",
-          lineNumber: 193,
-          columnNumber: 11
-        },
-        this
-      ),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Flex, { justify: "center", className: "mt-4", children: /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Button, { color: "primary", children: "\u304A\u4E16\u8A71\u8A18\u9332\u3092\u6295\u7A3F\u3059\u308B" }, void 0, !1, {
-        fileName: "app/routes/dashboards.$id.jsx",
-        lineNumber: 204,
-        columnNumber: 13
-      }, this) }, void 0, !1, {
-        fileName: "app/routes/dashboards.$id.jsx",
-        lineNumber: 203,
-        columnNumber: 11
-      }, this)
-    ] }, void 0, !0, {
-      fileName: "app/routes/dashboards.$id.jsx",
-      lineNumber: 171,
+      lineNumber: 70,
       columnNumber: 9
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(
@@ -2036,279 +1893,28 @@ function DashboardsId() {
       !1,
       {
         fileName: "app/routes/dashboards.$id.jsx",
-        lineNumber: 208,
+        lineNumber: 155,
         columnNumber: 9
       },
       this
-    ),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Tabs, { defaultValue: "daily", children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Tabs.List, { children: [
-        /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Tabs.Tab, { value: "daily", className: "w-1/2 text-base", children: "\u4E16\u8A71\u306E\u8A18\u9332" }, void 0, !1, {
-          fileName: "app/routes/dashboards.$id.jsx",
-          lineNumber: 218,
-          columnNumber: 13
-        }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Tabs.Tab, { value: "weight", className: "w-1/2 text-base", children: "\u4F53\u91CD" }, void 0, !1, {
-          fileName: "app/routes/dashboards.$id.jsx",
-          lineNumber: 221,
-          columnNumber: 13
-        }, this)
-      ] }, void 0, !0, {
-        fileName: "app/routes/dashboards.$id.jsx",
-        lineNumber: 217,
-        columnNumber: 11
-      }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Tabs.Panel, { value: "daily", pt: "xs", className: "p-0", children: [
-        /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Group, { className: "mb-4 border-t-0 border-x-0 border-b border-solid border-gray-300 gap-0", children: ary.map((item, index) => /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(
-          import_core13.Group,
-          {
-            className: "gap-0 relative bg-white px-3 py-3 w-full border-x-0 border-t border-b-0 border-solid border-gray-300",
-            noWrap: !0,
-            children: [
-              /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(
-                import_core13.Avatar,
-                {
-                  size: 64,
-                  className: "rounded-full border border-solid border-gray-200 mr-6",
-                  src: "https://kosugelian.net/images/stamp18.png"
-                },
-                void 0,
-                !1,
-                {
-                  fileName: "app/routes/dashboards.$id.jsx",
-                  lineNumber: 236,
-                  columnNumber: 21
-                },
-                this
-              ),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)("div", { children: [
-                /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Title, { order: 4, className: "mb-2", children: "\u990C\u3084\u308A" }, void 0, !1, {
-                  fileName: "app/routes/dashboards.$id.jsx",
-                  lineNumber: 242,
-                  columnNumber: 23
-                }, this),
-                /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Text, { fz: "sm", className: "mb-2", children: "\u30CF\u30E0\u30B9\u30BF\u30FC\u30D5\u30FC\u30C9\u3001\u3082\u3084\u3057\u3001\u30A6\u30A8\u30CF\u30FC\u30B9\u3001\u304B\u307C\u3061\u3083\u3001\u3068\u3046\u3082\u308D\u3053\u3057" }, void 0, !1, {
-                  fileName: "app/routes/dashboards.$id.jsx",
-                  lineNumber: 245,
-                  columnNumber: 23
-                }, this),
-                /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Text, { fz: "xs", children: "8\u670830\u65E5" }, void 0, !1, {
-                  fileName: "app/routes/dashboards.$id.jsx",
-                  lineNumber: 248,
-                  columnNumber: 23
-                }, this)
-              ] }, void 0, !0, {
-                fileName: "app/routes/dashboards.$id.jsx",
-                lineNumber: 241,
-                columnNumber: 21
-              }, this)
-            ]
-          },
-          index,
-          !0,
-          {
-            fileName: "app/routes/dashboards.$id.jsx",
-            lineNumber: 231,
-            columnNumber: 19
-          },
-          this
-        )) }, void 0, !1, {
-          fileName: "app/routes/dashboards.$id.jsx",
-          lineNumber: 228,
-          columnNumber: 13
-        }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Flex, { justify: "center", className: "mt-8", gap: 8, children: /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Pagination, { total: 5 }, void 0, !1, {
-          fileName: "app/routes/dashboards.$id.jsx",
-          lineNumber: 255,
-          columnNumber: 15
-        }, this) }, void 0, !1, {
-          fileName: "app/routes/dashboards.$id.jsx",
-          lineNumber: 254,
-          columnNumber: 13
-        }, this)
-      ] }, void 0, !0, {
-        fileName: "app/routes/dashboards.$id.jsx",
-        lineNumber: 227,
-        columnNumber: 11
-      }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Tabs.Panel, { value: "weight", pt: "xs", className: "p-4", children: [
-        /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Title, { order: 6, className: "mb-6", children: "2023\u5E744\u6708" }, void 0, !1, {
-          fileName: "app/routes/dashboards.$id.jsx",
-          lineNumber: 261,
-          columnNumber: 13
-        }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_recharts.ResponsiveContainer, { width: "100%", height: 300, children: /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(
-          import_recharts.LineChart,
-          {
-            data: data2,
-            margin: {
-              top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5
-            },
-            children: [
-              /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_recharts.CartesianGrid, { strokeDasharray: "3 3" }, void 0, !1, {
-                fileName: "app/routes/dashboards.$id.jsx",
-                lineNumber: 274,
-                columnNumber: 17
-              }, this),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_recharts.XAxis, { dataKey: "name" }, void 0, !1, {
-                fileName: "app/routes/dashboards.$id.jsx",
-                lineNumber: 275,
-                columnNumber: 17
-              }, this),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_recharts.YAxis, {}, void 0, !1, {
-                fileName: "app/routes/dashboards.$id.jsx",
-                lineNumber: 276,
-                columnNumber: 17
-              }, this),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_recharts.Tooltip, {}, void 0, !1, {
-                fileName: "app/routes/dashboards.$id.jsx",
-                lineNumber: 277,
-                columnNumber: 17
-              }, this),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_recharts.Legend, {}, void 0, !1, {
-                fileName: "app/routes/dashboards.$id.jsx",
-                lineNumber: 278,
-                columnNumber: 17
-              }, this),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(
-                import_recharts.Line,
-                {
-                  type: "monotone",
-                  dataKey: "pv",
-                  stroke: "#8884d8",
-                  activeDot: { r: 8 }
-                },
-                void 0,
-                !1,
-                {
-                  fileName: "app/routes/dashboards.$id.jsx",
-                  lineNumber: 279,
-                  columnNumber: 17
-                },
-                this
-              ),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_recharts.Line, { type: "monotone", dataKey: "uv", stroke: "#82ca9d" }, void 0, !1, {
-                fileName: "app/routes/dashboards.$id.jsx",
-                lineNumber: 285,
-                columnNumber: 17
-              }, this)
-            ]
-          },
-          void 0,
-          !0,
-          {
-            fileName: "app/routes/dashboards.$id.jsx",
-            lineNumber: 265,
-            columnNumber: 15
-          },
-          this
-        ) }, void 0, !1, {
-          fileName: "app/routes/dashboards.$id.jsx",
-          lineNumber: 264,
-          columnNumber: 13
-        }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Flex, { justify: "center", className: "mt-8", gap: 8, children: /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Button, { onClick: open, children: "\u4F53\u91CD\u3092\u8A18\u9332\u3059\u308B" }, void 0, !1, {
-          fileName: "app/routes/dashboards.$id.jsx",
-          lineNumber: 289,
-          columnNumber: 15
-        }, this) }, void 0, !1, {
-          fileName: "app/routes/dashboards.$id.jsx",
-          lineNumber: 288,
-          columnNumber: 13
-        }, this)
-      ] }, void 0, !0, {
-        fileName: "app/routes/dashboards.$id.jsx",
-        lineNumber: 260,
-        columnNumber: 11
-      }, this)
-    ] }, void 0, !0, {
-      fileName: "app/routes/dashboards.$id.jsx",
-      lineNumber: 215,
-      columnNumber: 9
-    }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Modal, { opened, onClose: close, title: "\u4F53\u91CD\u3092\u8A18\u9332\u3059\u308B", children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(
-        import_core13.Flex,
-        {
-          justify: "space-between",
-          align: "center",
-          className: "py-3 border-0 border-b border-solid border-gray-200",
-          children: [
-            /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Title, { order: 5, className: "font-bold", children: "\u65E5\u4ED8" }, void 0, !1, {
-              fileName: "app/routes/dashboards.$id.jsx",
-              lineNumber: 300,
-              columnNumber: 13
-            }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Input, { value: "2023/4/9" }, void 0, !1, {
-              fileName: "app/routes/dashboards.$id.jsx",
-              lineNumber: 303,
-              columnNumber: 13
-            }, this)
-          ]
-        },
-        void 0,
-        !0,
-        {
-          fileName: "app/routes/dashboards.$id.jsx",
-          lineNumber: 295,
-          columnNumber: 11
-        },
-        this
-      ),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(
-        import_core13.Flex,
-        {
-          justify: "space-between",
-          align: "center",
-          className: "py-3 border-0 border-b border-solid border-gray-200",
-          children: [
-            /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Title, { order: 5, className: "font-bold", children: "\u4F53\u91CD" }, void 0, !1, {
-              fileName: "app/routes/dashboards.$id.jsx",
-              lineNumber: 310,
-              columnNumber: 13
-            }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Input, { value: "150g" }, void 0, !1, {
-              fileName: "app/routes/dashboards.$id.jsx",
-              lineNumber: 313,
-              columnNumber: 13
-            }, this)
-          ]
-        },
-        void 0,
-        !0,
-        {
-          fileName: "app/routes/dashboards.$id.jsx",
-          lineNumber: 305,
-          columnNumber: 11
-        },
-        this
-      ),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Flex, { justify: "center", className: "mt-4", children: /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Button, { color: "primary", children: "\u4F53\u91CD\u3092\u5165\u529B\u3059\u308B" }, void 0, !1, {
-        fileName: "app/routes/dashboards.$id.jsx",
-        lineNumber: 316,
-        columnNumber: 13
-      }, this) }, void 0, !1, {
-        fileName: "app/routes/dashboards.$id.jsx",
-        lineNumber: 315,
-        columnNumber: 11
-      }, this)
-    ] }, void 0, !0, {
-      fileName: "app/routes/dashboards.$id.jsx",
-      lineNumber: 293,
-      columnNumber: 9
-    }, this)
+    )
   ] }, void 0, !0, {
     fileName: "app/routes/dashboards.$id.jsx",
-    lineNumber: 122,
+    lineNumber: 69,
     columnNumber: 7
   }, this) }, void 0, !1, {
     fileName: "app/routes/dashboards.$id.jsx",
-    lineNumber: 121,
+    lineNumber: 68,
     columnNumber: 5
   }, this);
+}
+async function action3({ request }) {
+  let formData = await request.formData(), id2 = parseInt(formData.get("id")), res = await db.hamster.delete({
+    where: {
+      id: id2
+    }
+  });
+  return console.log(res), (0, import_node4.redirect)("/dashboards");
 }
 
 // app/routes/dashboards.add.jsx
@@ -2785,7 +2391,7 @@ async function action5({ request }) {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-UINMPAD7.js", imports: ["/build/_shared/chunk-OAPPX4FA.js", "/build/_shared/chunk-WEAPBHQG.js", "/build/_shared/chunk-ZK7QOKXM.js", "/build/_shared/chunk-2QJY4JOV.js", "/build/_shared/chunk-CJ4MY3PQ.js", "/build/_shared/chunk-LAGJPRBL.js", "/build/_shared/chunk-JR22VO6P.js", "/build/_shared/chunk-PZDJHGND.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-6OV6SYQH.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-GXZAKKW6.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/auth.$provider": { id: "routes/auth.$provider", parentId: "root", path: "auth/:provider", index: void 0, caseSensitive: void 0, module: "/build/routes/auth.$provider-XLKLRWKQ.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/auth.$provider.callback": { id: "routes/auth.$provider.callback", parentId: "routes/auth.$provider", path: "callback", index: void 0, caseSensitive: void 0, module: "/build/routes/auth.$provider.callback-VMI45MSD.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards": { id: "routes/dashboards", parentId: "root", path: "dashboards", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards-2JPDDGZE.js", imports: ["/build/_shared/chunk-QBPP6244.js", "/build/_shared/chunk-7IIQOYQI.js", "/build/_shared/chunk-RMZWS5TU.js", "/build/_shared/chunk-YTECQKG7.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.$id": { id: "routes/dashboards.$id", parentId: "routes/dashboards", path: ":id", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.$id-SS3JVID2.js", imports: ["/build/_shared/chunk-RYOJHMZB.js", "/build/_shared/chunk-NBEH4DGX.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.$id.diary": { id: "routes/dashboards.$id.diary", parentId: "routes/dashboards.$id", path: "diary", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.$id.diary-UAUCQ7B5.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.$id.diary.$date": { id: "routes/dashboards.$id.diary.$date", parentId: "routes/dashboards.$id.diary", path: ":date", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.$id.diary.$date-KL6UOB2G.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.$id_.edit": { id: "routes/dashboards.$id_.edit", parentId: "routes/dashboards", path: ":id/edit", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.$id_.edit-LKLVH4IQ.js", imports: ["/build/_shared/chunk-GJWATHW6.js", "/build/_shared/chunk-NBEH4DGX.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards._index": { id: "routes/dashboards._index", parentId: "routes/dashboards", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/dashboards._index-T5SVARDP.js", imports: ["/build/_shared/chunk-RYOJHMZB.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.add": { id: "routes/dashboards.add", parentId: "routes/dashboards", path: "add", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.add-ORUCFTEI.js", imports: ["/build/_shared/chunk-GJWATHW6.js", "/build/_shared/chunk-NBEH4DGX.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.feed": { id: "routes/dashboards.feed", parentId: "routes/dashboards", path: "feed", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.feed-TEOZTZMI.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.hospital": { id: "routes/dashboards.hospital", parentId: "routes/dashboards", path: "hospital", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.hospital-W5OT2SOE.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.hospital_.$id": { id: "routes/dashboards.hospital_.$id", parentId: "routes/dashboards", path: "hospital/:id", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.hospital_.$id-T27NKFMW.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.profile": { id: "routes/dashboards.profile", parentId: "routes/dashboards", path: "profile", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.profile-RJAGGKDZ.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.profile_.edit": { id: "routes/dashboards.profile_.edit", parentId: "routes/dashboards", path: "profile/edit", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.profile_.edit-XOEEOJ44.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/logout": { id: "routes/logout", parentId: "root", path: "logout", index: void 0, caseSensitive: void 0, module: "/build/routes/logout-5GTPI7EF.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, version: "7b8dd7fb", hmr: { runtime: "/build/_shared/chunk-LAGJPRBL.js", timestamp: 1689287213165 }, url: "/build/manifest-7B8DD7FB.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-Z4CH2IZS.js", imports: ["/build/_shared/chunk-ZWGWGGVF.js", "/build/_shared/chunk-GIAAE3CH.js", "/build/_shared/chunk-IL37TEON.js", "/build/_shared/chunk-NMZL6IDN.js", "/build/_shared/chunk-BOXFZXVX.js", "/build/_shared/chunk-BHG7KMLG.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-O55UAQCG.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-6JDXTRPJ.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/auth.$provider": { id: "routes/auth.$provider", parentId: "root", path: "auth/:provider", index: void 0, caseSensitive: void 0, module: "/build/routes/auth.$provider-JICM3LZN.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/auth.$provider.callback": { id: "routes/auth.$provider.callback", parentId: "routes/auth.$provider", path: "callback", index: void 0, caseSensitive: void 0, module: "/build/routes/auth.$provider.callback-DBRCVAXE.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards": { id: "routes/dashboards", parentId: "root", path: "dashboards", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards-QC4IZQ7F.js", imports: ["/build/_shared/chunk-DXZPNPAJ.js", "/build/_shared/chunk-46A2TU25.js", "/build/_shared/chunk-MQO757Q3.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.$id": { id: "routes/dashboards.$id", parentId: "routes/dashboards", path: ":id", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.$id-CGFUOU5F.js", imports: ["/build/_shared/chunk-SDOXSTN5.js", "/build/_shared/chunk-G7CHZRZX.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.$id.diary": { id: "routes/dashboards.$id.diary", parentId: "routes/dashboards.$id", path: "diary", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.$id.diary-V7E3A773.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.$id.diary.$date": { id: "routes/dashboards.$id.diary.$date", parentId: "routes/dashboards.$id.diary", path: ":date", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.$id.diary.$date-LCA7P56A.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.$id_.edit": { id: "routes/dashboards.$id_.edit", parentId: "routes/dashboards", path: ":id/edit", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.$id_.edit-BHCSDPNY.js", imports: ["/build/_shared/chunk-HMU6UXAN.js", "/build/_shared/chunk-G7CHZRZX.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards._index": { id: "routes/dashboards._index", parentId: "routes/dashboards", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/dashboards._index-R7I356FX.js", imports: ["/build/_shared/chunk-SDOXSTN5.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.add": { id: "routes/dashboards.add", parentId: "routes/dashboards", path: "add", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.add-FWZPWM2L.js", imports: ["/build/_shared/chunk-HMU6UXAN.js", "/build/_shared/chunk-G7CHZRZX.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.feed": { id: "routes/dashboards.feed", parentId: "routes/dashboards", path: "feed", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.feed-PLSHKU4T.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.hospital": { id: "routes/dashboards.hospital", parentId: "routes/dashboards", path: "hospital", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.hospital-OIQ3TPUX.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.hospital_.$id": { id: "routes/dashboards.hospital_.$id", parentId: "routes/dashboards", path: "hospital/:id", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.hospital_.$id-JLHFRQWX.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.profile": { id: "routes/dashboards.profile", parentId: "routes/dashboards", path: "profile", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.profile-BY7JM65U.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.profile_.edit": { id: "routes/dashboards.profile_.edit", parentId: "routes/dashboards", path: "profile/edit", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.profile_.edit-OE7VIPB5.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/logout": { id: "routes/logout", parentId: "root", path: "logout", index: void 0, caseSensitive: void 0, module: "/build/routes/logout-GGSXPJWV.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, version: "38b52f49", hmr: { runtime: "/build/_shared/chunk-BHG7KMLG.js", timestamp: 1689288660010 }, url: "/build/manifest-38B52F49.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", future = { v2_dev: !0, unstable_postcss: !1, unstable_tailwind: !1, v2_errorBoundary: !0, v2_headers: !0, v2_meta: !0, v2_normalizeFormMethod: !0, v2_routeConvention: !0 }, publicPath = "/build/", entry = { module: entry_server_exports }, dev = { port: 3001 }, routes = {
