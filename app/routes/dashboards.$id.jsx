@@ -82,13 +82,13 @@ export async function action({ request }) {
   const formData = await request.formData();
   const id = formData.get("id");
 
-  const response = await fetch(`${process.env.API_HOST}api/hamsters/${id}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ id }),
-  });
+  // const response = await fetch(`${process.env.API_HOST}api/hamsters/${id}`, {
+  //   method: "DELETE",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify({ id }),
+  // });
 
   return redirect(`/dashboards`);
 }

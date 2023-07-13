@@ -13,8 +13,8 @@ import HamsterEntryForm from "../components/HamsterEntryForm";
  * その基本を理解しておく必要がある
  ****************************************/
 export const loader = async ({ params }) => {
-  const res = await fetch(`${process.env.API_HOST}api/hamsters/${params.id}`);
-  const data = await res.json();
+  // const res = await fetch(`${process.env.API_HOST}api/hamsters/${params.id}`);
+  // const data = await res.json();
 
   return data;
 };
@@ -36,21 +36,21 @@ export async function action({ request }) {
   const introduce = formData.get("introduce");
   const birthday = formData.get("birthday");
 
-  const response = await fetch(`${process.env.API_HOST}api/hamsters/${id}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      name,
-      sex,
-      type_id,
-      user_id,
-      id,
-      introduce,
-      birthday,
-    }),
-  });
+  // const response = await fetch(`${process.env.API_HOST}api/hamsters/${id}`, {
+  //   method: "PUT",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify({
+  //     name,
+  //     sex,
+  //     type_id,
+  //     user_id,
+  //     id,
+  //     introduce,
+  //     birthday,
+  //   }),
+  // });
   return redirect(`/dashboards/${id}`);
 }
 

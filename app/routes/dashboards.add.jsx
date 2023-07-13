@@ -20,13 +20,13 @@ export async function action({ request }) {
   const introduce = formData.get("introduce");
   const birthday = formData.get("birthday");
 
-  const response = await fetch(`${process.env.API_HOST}api/hamsters`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ name, sex, type_id, user_id, introduce, birthday }),
-  });
+  // const response = await fetch(`${process.env.API_HOST}api/hamsters`, {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify({ name, sex, type_id, user_id, introduce, birthday }),
+  // });
 
   return redirect("/dashboards");
 }

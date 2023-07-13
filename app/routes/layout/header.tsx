@@ -30,13 +30,6 @@ export function LayoutHeader() {
   const [opened, { open, close }] = useDisclosure(false);
   const [openedPet, { open: openPet, close: closePet }] = useDisclosure(false);
 
-  const fetcherHamsters = useFetcher();
-
-  useEffect(() => {
-    const res = fetcherHamsters.load("/api/hamsters?index");
-    console.log(process);
-  }, []);
-
   return (
     <>
       <Header>

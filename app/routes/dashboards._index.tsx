@@ -1,6 +1,7 @@
 /** remix */
 import { useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/node";
+import { authenticator } from "../services/auth.server";
 
 /** Mantine */
 import { Container, Group } from "@mantine/core";
@@ -9,6 +10,7 @@ import { Container, Group } from "@mantine/core";
 import { IconStethoscope, IconBasketFilled } from "@tabler/icons-react";
 
 /** components */
+import LogoutForm from "../components/common/LogoutForm";
 import HamsterMedia from "../components/HamsterMedia";
 import CenterButton from "../components/common/CenterButton";
 import SectionHeading from "../components/SectionHeading";
@@ -19,22 +21,34 @@ import HospitalMedia from "../components/HospitalMedia";
  * loader関数はサーバーサイドで実行される関数
  * その基本を理解しておく必要がある
  ****************************************/
-export const loader = async ({ params }) => {
-  const res = await fetch(`${process.env.API_HOST}api/hamsters`);
-  const data = await res.json();
-  // console.log(data);
-  return data;
-};
+export async function loader({ request }: LoaderArgs) {
+  const user = await authenticator.isAuthenticated(request, {
+    failureRedirect: "/",
+  });
+
+  const hamsters = [
+    {
+      id: 1,
+      name: "ハム太郎",
+    },
+  ];
+
+  return { hamsters, user };
+}
 
 export default function ProfileDashboards() {
   const ary = [1, 1, 1];
-  const hamsters = useLoaderData();
+  const { hamsters, user } = useLoaderData();
+  console.log(user);
 
   return (
     <div className="bg-stone-50">
       {/* ペット情報*/}
       <div className="py-8">
         <SectionHeading text={"ペット情報"} icon={""} />
+
+        {/* テストログアウト */}
+        <LogoutForm user={user} />
 
         <Group className="gap-0 border-0 border-b border-solid border-gray-300 mb-3">
           {hamsters.map((hamster, index) => (

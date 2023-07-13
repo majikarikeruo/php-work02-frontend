@@ -8,8 +8,8 @@ import {
 } from "@remix-run/react";
 import stylesheet from "~/tailwind.css";
 
-import { LayoutHeader } from "./routes/layout/header";
-import { LayoutFooter } from "./routes/layout/footer";
+// import { LayoutHeader } from "./routes/layout/header";
+// import { LayoutFooter } from "./routes/layout/footer";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -25,9 +25,9 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <LayoutHeader />
+        {/* <LayoutHeader /> */}
         <Outlet />
-        <LayoutFooter />
+        {/* <LayoutFooter /> */}
 
         <ScrollRestoration />
         <Scripts />
