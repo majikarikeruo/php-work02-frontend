@@ -1,7 +1,5 @@
 /** remix */
 import { useRouteLoaderData } from "@remix-run/react";
-import { json } from "@remix-run/node";
-import { authenticator } from "../services/auth.server";
 
 /** Mantine */
 import { Container, Group } from "@mantine/core";
@@ -23,7 +21,6 @@ import HospitalMedia from "../components/HospitalMedia";
 
 export default function DashboardsIndex() {
   const { hamsters } = useRouteLoaderData("routes/dashboards");
-  console.log(hamsters, 1);
 
   return (
     <>

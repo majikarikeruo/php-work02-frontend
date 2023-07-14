@@ -36,19 +36,14 @@ import { redirect } from "@remix-run/node";
 /** server */
 import { db } from "../db.server";
 
-/*****************************************v
- * loader関数はサーバーサイドで実行される関数
- * その基本を理解しておく必要がある
- ****************************************/
 export const loader = async ({ params }) => {
-  console.log(params, 1);
-  const hamsters = await db.hamster.findUnique({
+  const hamster = await db.hamster.findUnique({
     where: {
       id: parseInt(params.id),
     },
   });
 
-  return hamsters;
+  return hamster;
 };
 
 export default function DashboardsId() {
@@ -62,7 +57,6 @@ export default function DashboardsId() {
   ] = useDisclosure(false);
 
   const hamster = useLoaderData();
-  console.log(hamster, 2);
 
   return (
     <div className="bg-stone-50">
@@ -277,8 +271,6 @@ export async function action({ request }) {
       id,
     },
   });
-
-  console.log(res);
 
   return redirect(`/dashboards`);
 }

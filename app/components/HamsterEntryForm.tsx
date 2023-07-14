@@ -17,7 +17,7 @@ import {
 /* library */
 import { IconCameraPlus } from "@tabler/icons-react";
 
-export default function HamsterEntryForm({ user }) {
+export default function HamsterEntryForm({ user, hamster }) {
   return (
     <Form method="post">
       <div className="mb-8">
@@ -40,7 +40,7 @@ export default function HamsterEntryForm({ user }) {
             <Title order={5} className="font-bold">
               名前
             </Title>
-            <Input name="name" size={"md"} />
+            <Input name="name" size={"md"} defaultValue={hamster.name} />
           </Flex>
           <Flex
             justify={"space-between"}
@@ -53,6 +53,7 @@ export default function HamsterEntryForm({ user }) {
             <Select
               name="sexId"
               placeholder="選択してください"
+              defaultValue={String(hamster.sexId)}
               data={[
                 { value: "1", label: "オス" },
                 { value: "2", label: "メス" },
@@ -67,9 +68,11 @@ export default function HamsterEntryForm({ user }) {
             <Title order={5} className="font-bold">
               種類
             </Title>
+
             <Select
               name="kindId"
               placeholder="選択してください"
+              defaultValue={String(hamster.kindId)}
               data={[
                 { value: "1", label: "ゴールデンハムスター" },
                 { value: "2", label: "ジャンガリアンハムスター" },
@@ -84,7 +87,11 @@ export default function HamsterEntryForm({ user }) {
             <Title order={5} className="font-bold">
               生まれた日
             </Title>
-            <Input name="birthday" size={"md"} />
+            <Input
+              name="birthday"
+              size={"md"}
+              defaultValue={hamster.birthday}
+            />
           </Flex>
           <Flex
             justify={"space-between"}
@@ -94,7 +101,11 @@ export default function HamsterEntryForm({ user }) {
             <Title order={5} className="mb-2 font-bold">
               ペットの特徴メモ
             </Title>
-            <Textarea minRows={10} name="introduce" />
+            <Textarea
+              minRows={10}
+              name="introduce"
+              defaultValue={hamster.introduce}
+            />
           </Flex>
           <Flex justify={"center"} className="mt-4" gap={8}>
             <Anchor
@@ -106,11 +117,12 @@ export default function HamsterEntryForm({ user }) {
               戻る
             </Anchor>
             <input type="hidden" value={user.id} name="userId" />
-            {/* {hamster && hamster.id && (
+            {hamster && hamster.id && (
               <input type="hidden" value={hamster.id} name="id" />
-            )} */}
+            )}
             <Button color="primary" type="submit">
-              ペット情報を追加
+              ペット情報を
+              {hamster && hamster.id ? "更新" : "追加"}
             </Button>
           </Flex>
         </Container>

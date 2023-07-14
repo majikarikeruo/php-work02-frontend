@@ -4,7 +4,6 @@ export default function ProfileDashboards() {
   const handleSubmit = (event) => {
     event.preventDefault();
     // 検索処理を実行する
-    console.log("検索実行:");
   };
 
   return (

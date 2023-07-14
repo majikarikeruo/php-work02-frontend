@@ -13,7 +13,7 @@ import { db } from "../db.server";
 
 export default function DashboardAdd({ chlildren }) {
   const { user } = useRouteLoaderData("routes/dashboards");
-  console.log(user, chlildren);
+
   return (
     <div className="bg-stone-50">
       <div className="py-8">
@@ -37,7 +37,6 @@ export async function action({ request }) {
   hamsterData.kindId = parseInt(hamsterData.kindId);
   hamsterData.userId = parseInt(hamsterData.userId);
 
-  console.log(hamsterData, 12);
   /** validation */
 
   try {
@@ -46,7 +45,6 @@ export async function action({ request }) {
         ...hamsterData,
       },
     });
-    console.log(hamster);
   } catch (e) {
     console.log(e);
   }
