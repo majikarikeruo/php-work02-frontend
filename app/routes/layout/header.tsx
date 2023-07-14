@@ -1,6 +1,4 @@
 /** remix */
-import { useFetcher } from "@remix-run/react";
-import { useEffect } from "react";
 
 /** Mantine */
 import {
@@ -26,9 +24,10 @@ import {
 } from "@tabler/icons-react";
 import { useDisclosure } from "@mantine/hooks";
 
+import { constants } from "../../utils/constant";
 import LogoutForm from "../../components/common/LogoutForm";
 
-export function LayoutHeader({ user }) {
+export function LayoutHeader({ user, hamsters }) {
   const [opened, { open, close }] = useDisclosure(false);
   const [openedPet, { open: openPet, close: closePet }] = useDisclosure(false);
 
@@ -120,7 +119,7 @@ export function LayoutHeader({ user }) {
 
         <Drawer.Body className="p-0">
           <Group className="gap-0">
-            {/* {hamsters.map((hamster, index) => (
+            {hamsters.map((hamster, index) => (
               <Flex
                 align={"center"}
                 key={index}
@@ -135,12 +134,12 @@ export function LayoutHeader({ user }) {
                 </div>
                 <div>
                   <Text fz={"md"} className="font-bold">
-                    けんぞう
+                    {hamster.name}
                   </Text>
-                  <Text fz={"xs"}>ロボロフスキーハムスター</Text>
+                  <Text fz={"xs"}>{constants.kind[hamster.kindId]}</Text>
                 </div>
               </Flex>
-            ))} */}
+            ))}
           </Group>
         </Drawer.Body>
       </Drawer>

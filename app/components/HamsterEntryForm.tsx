@@ -40,7 +40,11 @@ export default function HamsterEntryForm({ user, hamster }) {
             <Title order={5} className="font-bold">
               名前
             </Title>
-            <Input name="name" size={"md"} defaultValue={hamster.name} />
+            <Input
+              name="name"
+              size={"md"}
+              defaultValue={hamster && hamster.name}
+            />
           </Flex>
           <Flex
             justify={"space-between"}
@@ -53,7 +57,7 @@ export default function HamsterEntryForm({ user, hamster }) {
             <Select
               name="sexId"
               placeholder="選択してください"
-              defaultValue={String(hamster.sexId)}
+              defaultValue={hamster && String(hamster.sexId)}
               data={[
                 { value: "1", label: "オス" },
                 { value: "2", label: "メス" },
@@ -72,7 +76,7 @@ export default function HamsterEntryForm({ user, hamster }) {
             <Select
               name="kindId"
               placeholder="選択してください"
-              defaultValue={String(hamster.kindId)}
+              defaultValue={hamster && String(hamster.kindId)}
               data={[
                 { value: "1", label: "ゴールデンハムスター" },
                 { value: "2", label: "ジャンガリアンハムスター" },
@@ -90,7 +94,7 @@ export default function HamsterEntryForm({ user, hamster }) {
             <Input
               name="birthday"
               size={"md"}
-              defaultValue={hamster.birthday}
+              defaultValue={hamster && hamster.birthday}
             />
           </Flex>
           <Flex
@@ -104,7 +108,7 @@ export default function HamsterEntryForm({ user, hamster }) {
             <Textarea
               minRows={10}
               name="introduce"
-              defaultValue={hamster.introduce}
+              defaultValue={hamster && hamster.introduce}
             />
           </Flex>
           <Flex justify={"center"} className="mt-4" gap={8}>

@@ -724,11 +724,22 @@ function HamsterEntryForm({ user, hamster }) {
               lineNumber: 40,
               columnNumber: 13
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_core3.Input, { name: "name", size: "md", defaultValue: hamster.name }, void 0, !1, {
-              fileName: "app/components/HamsterEntryForm.tsx",
-              lineNumber: 43,
-              columnNumber: 13
-            }, this)
+            /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(
+              import_core3.Input,
+              {
+                name: "name",
+                size: "md",
+                defaultValue: hamster && hamster.name
+              },
+              void 0,
+              !1,
+              {
+                fileName: "app/components/HamsterEntryForm.tsx",
+                lineNumber: 43,
+                columnNumber: 13
+              },
+              this
+            )
           ]
         },
         void 0,
@@ -749,7 +760,7 @@ function HamsterEntryForm({ user, hamster }) {
           children: [
             /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_core3.Title, { order: 5, className: "font-bold", children: "\u6027\u5225" }, void 0, !1, {
               fileName: "app/components/HamsterEntryForm.tsx",
-              lineNumber: 50,
+              lineNumber: 54,
               columnNumber: 13
             }, this),
             /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(
@@ -757,7 +768,7 @@ function HamsterEntryForm({ user, hamster }) {
               {
                 name: "sexId",
                 placeholder: "\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044",
-                defaultValue: String(hamster.sexId),
+                defaultValue: hamster && String(hamster.sexId),
                 data: [
                   { value: "1", label: "\u30AA\u30B9" },
                   { value: "2", label: "\u30E1\u30B9" }
@@ -767,7 +778,7 @@ function HamsterEntryForm({ user, hamster }) {
               !1,
               {
                 fileName: "app/components/HamsterEntryForm.tsx",
-                lineNumber: 53,
+                lineNumber: 57,
                 columnNumber: 13
               },
               this
@@ -778,7 +789,7 @@ function HamsterEntryForm({ user, hamster }) {
         !0,
         {
           fileName: "app/components/HamsterEntryForm.tsx",
-          lineNumber: 45,
+          lineNumber: 49,
           columnNumber: 11
         },
         this
@@ -792,7 +803,7 @@ function HamsterEntryForm({ user, hamster }) {
           children: [
             /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_core3.Title, { order: 5, className: "font-bold", children: "\u7A2E\u985E" }, void 0, !1, {
               fileName: "app/components/HamsterEntryForm.tsx",
-              lineNumber: 68,
+              lineNumber: 72,
               columnNumber: 13
             }, this),
             /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(
@@ -800,7 +811,7 @@ function HamsterEntryForm({ user, hamster }) {
               {
                 name: "kindId",
                 placeholder: "\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044",
-                defaultValue: String(hamster.kindId),
+                defaultValue: hamster && String(hamster.kindId),
                 data: [
                   { value: "1", label: "\u30B4\u30FC\u30EB\u30C7\u30F3\u30CF\u30E0\u30B9\u30BF\u30FC" },
                   { value: "2", label: "\u30B8\u30E3\u30F3\u30AC\u30EA\u30A2\u30F3\u30CF\u30E0\u30B9\u30BF\u30FC" }
@@ -810,7 +821,7 @@ function HamsterEntryForm({ user, hamster }) {
               !1,
               {
                 fileName: "app/components/HamsterEntryForm.tsx",
-                lineNumber: 72,
+                lineNumber: 76,
                 columnNumber: 13
               },
               this
@@ -821,7 +832,7 @@ function HamsterEntryForm({ user, hamster }) {
         !0,
         {
           fileName: "app/components/HamsterEntryForm.tsx",
-          lineNumber: 63,
+          lineNumber: 67,
           columnNumber: 11
         },
         this
@@ -835,7 +846,7 @@ function HamsterEntryForm({ user, hamster }) {
           children: [
             /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_core3.Title, { order: 5, className: "font-bold", children: "\u751F\u307E\u308C\u305F\u65E5" }, void 0, !1, {
               fileName: "app/components/HamsterEntryForm.tsx",
-              lineNumber: 87,
+              lineNumber: 91,
               columnNumber: 13
             }, this),
             /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(
@@ -843,13 +854,13 @@ function HamsterEntryForm({ user, hamster }) {
               {
                 name: "birthday",
                 size: "md",
-                defaultValue: hamster.birthday
+                defaultValue: hamster && hamster.birthday
               },
               void 0,
               !1,
               {
                 fileName: "app/components/HamsterEntryForm.tsx",
-                lineNumber: 90,
+                lineNumber: 94,
                 columnNumber: 13
               },
               this
@@ -860,7 +871,7 @@ function HamsterEntryForm({ user, hamster }) {
         !0,
         {
           fileName: "app/components/HamsterEntryForm.tsx",
-          lineNumber: 82,
+          lineNumber: 86,
           columnNumber: 11
         },
         this
@@ -874,7 +885,7 @@ function HamsterEntryForm({ user, hamster }) {
           children: [
             /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_core3.Title, { order: 5, className: "mb-2 font-bold", children: "\u30DA\u30C3\u30C8\u306E\u7279\u5FB4\u30E1\u30E2" }, void 0, !1, {
               fileName: "app/components/HamsterEntryForm.tsx",
-              lineNumber: 101,
+              lineNumber: 105,
               columnNumber: 13
             }, this),
             /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(
@@ -882,13 +893,13 @@ function HamsterEntryForm({ user, hamster }) {
               {
                 minRows: 10,
                 name: "introduce",
-                defaultValue: hamster.introduce
+                defaultValue: hamster && hamster.introduce
               },
               void 0,
               !1,
               {
                 fileName: "app/components/HamsterEntryForm.tsx",
-                lineNumber: 104,
+                lineNumber: 108,
                 columnNumber: 13
               },
               this
@@ -899,7 +910,7 @@ function HamsterEntryForm({ user, hamster }) {
         !0,
         {
           fileName: "app/components/HamsterEntryForm.tsx",
-          lineNumber: 96,
+          lineNumber: 100,
           columnNumber: 11
         },
         this
@@ -918,19 +929,19 @@ function HamsterEntryForm({ user, hamster }) {
           !1,
           {
             fileName: "app/components/HamsterEntryForm.tsx",
-            lineNumber: 111,
+            lineNumber: 115,
             columnNumber: 13
           },
           this
         ),
         /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)("input", { type: "hidden", value: user.id, name: "userId" }, void 0, !1, {
           fileName: "app/components/HamsterEntryForm.tsx",
-          lineNumber: 119,
+          lineNumber: 123,
           columnNumber: 13
         }, this),
         hamster && hamster.id && /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)("input", { type: "hidden", value: hamster.id, name: "id" }, void 0, !1, {
           fileName: "app/components/HamsterEntryForm.tsx",
-          lineNumber: 121,
+          lineNumber: 125,
           columnNumber: 15
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_core3.Button, { color: "primary", type: "submit", children: [
@@ -938,12 +949,12 @@ function HamsterEntryForm({ user, hamster }) {
           hamster && hamster.id ? "\u66F4\u65B0" : "\u8FFD\u52A0"
         ] }, void 0, !0, {
           fileName: "app/components/HamsterEntryForm.tsx",
-          lineNumber: 123,
+          lineNumber: 127,
           columnNumber: 13
         }, this)
       ] }, void 0, !0, {
         fileName: "app/components/HamsterEntryForm.tsx",
-        lineNumber: 110,
+        lineNumber: 114,
         columnNumber: 11
       }, this)
     ] }, void 0, !0, {
@@ -1475,6 +1486,10 @@ var constants = {
   sex: {
     1: "\u30AA\u30B9",
     2: "\u30E1\u30B9"
+  },
+  kind: {
+    1: "\u30B4\u30FC\u30EB\u30C7\u30F3\u30CF\u30E0\u30B9\u30BF\u30FC",
+    2: "\u30B8\u30E3\u30F3\u30AC\u30EA\u30A2\u30F3\u30CF\u30E0\u30B9\u30BF\u30FC"
   }
 };
 
@@ -1746,6 +1761,16 @@ __export(dashboards_id_exports, {
   loader: () => loader3
 });
 var import_hooks3 = require("@mantine/hooks"), import_react13 = require("@remix-run/react");
+
+// app/utils/plugin.js
+function TranslateDateToMY(date) {
+  let registeredDate = new Date(date), diff = (/* @__PURE__ */ new Date()).getTime() - registeredDate.getTime(), years = Math.floor(diff / (1e3 * 60 * 60 * 24 * 365));
+  diff -= years * (1e3 * 60 * 60 * 24 * 365);
+  let months = Math.floor(diff / (1e3 * 60 * 60 * 24 * 30));
+  return console.log(`\u7D4C\u904E\u6642\u9593: ${years} \u5E74\u3068 ${months} \u30F6\u6708`), `${years}\u6B73${months}\u30F6\u6708`;
+}
+
+// app/routes/dashboards.$id.tsx
 var import_core13 = require("@mantine/core");
 
 // app/components/pet/PetDeleteDialog.tsx
@@ -1806,11 +1831,14 @@ function PetDeleteDialog({ hamster, opened, onClose }) {
 
 // app/routes/dashboards.$id.tsx
 var import_node4 = require("@remix-run/node");
-var import_jsx_dev_runtime17 = require("react/jsx-dev-runtime"), loader3 = async ({ params }) => await db.hamster.findUnique({
-  where: {
-    id: parseInt(params.id)
-  }
-});
+var import_jsx_dev_runtime17 = require("react/jsx-dev-runtime"), loader3 = async ({ params }) => {
+  let hamster = await db.hamster.findUnique({
+    where: {
+      id: parseInt(params.id)
+    }
+  });
+  return hamster.birthday = TranslateDateToMY(hamster.birthday), hamster;
+};
 function DashboardsId() {
   let [
     openedDeleteDialog,
@@ -1840,43 +1868,40 @@ function DashboardsId() {
             !1,
             {
               fileName: "app/routes/dashboards.$id.tsx",
-              lineNumber: 77,
+              lineNumber: 79,
               columnNumber: 13
             },
             this
           ),
           /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Title, { order: 3, ta: "center", fz: "lg", weight: 700, mt: "md", children: hamster.name }, void 0, !1, {
             fileName: "app/routes/dashboards.$id.tsx",
-            lineNumber: 83,
+            lineNumber: 85,
             columnNumber: 13
           }, this),
           /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Text, { mt: "md", mb: "lg", children: [
             /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)("span", { className: "block", children: "\u30B4\u30FC\u30EB\u30C7\u30F3\u30CF\u30E0\u30B9\u30BF\u30FC" }, void 0, !1, {
               fileName: "app/routes/dashboards.$id.tsx",
-              lineNumber: 87,
+              lineNumber: 89,
               columnNumber: 15
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)("span", { children: [
-              " ",
-              constants.sex[hamster.sex]
-            ] }, void 0, !0, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)("span", { className: "inline-block mr-2", children: constants.sex[hamster.sexId] }, void 0, !1, {
               fileName: "app/routes/dashboards.$id.tsx",
-              lineNumber: 88,
+              lineNumber: 90,
               columnNumber: 15
             }, this),
             /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)("span", { children: hamster.birthday }, void 0, !1, {
               fileName: "app/routes/dashboards.$id.tsx",
-              lineNumber: 89,
+              lineNumber: 93,
               columnNumber: 15
             }, this)
           ] }, void 0, !0, {
             fileName: "app/routes/dashboards.$id.tsx",
-            lineNumber: 86,
+            lineNumber: 88,
             columnNumber: 13
           }, this),
           /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(import_core13.Button, { fullWidth: !0, size: "md", mt: "md", onClick: "", children: "\u304A\u4E16\u8A71\u306E\u8A18\u9332\u3092\u3059\u308B" }, void 0, !1, {
             fileName: "app/routes/dashboards.$id.tsx",
-            lineNumber: 91,
+            lineNumber: 95,
             columnNumber: 13
           }, this),
           /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(
@@ -1890,7 +1915,7 @@ function DashboardsId() {
             !1,
             {
               fileName: "app/routes/dashboards.$id.tsx",
-              lineNumber: 94,
+              lineNumber: 98,
               columnNumber: 13
             },
             this
@@ -1910,7 +1935,7 @@ function DashboardsId() {
             !1,
             {
               fileName: "app/routes/dashboards.$id.tsx",
-              lineNumber: 99,
+              lineNumber: 103,
               columnNumber: 13
             },
             this
@@ -1921,13 +1946,13 @@ function DashboardsId() {
       !0,
       {
         fileName: "app/routes/dashboards.$id.tsx",
-        lineNumber: 65,
+        lineNumber: 67,
         columnNumber: 11
       },
       this
     ) }, void 0, !1, {
       fileName: "app/routes/dashboards.$id.tsx",
-      lineNumber: 64,
+      lineNumber: 66,
       columnNumber: 9
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime17.jsxDEV)(
@@ -1942,18 +1967,18 @@ function DashboardsId() {
       !1,
       {
         fileName: "app/routes/dashboards.$id.tsx",
-        lineNumber: 149,
+        lineNumber: 153,
         columnNumber: 9
       },
       this
     )
   ] }, void 0, !0, {
     fileName: "app/routes/dashboards.$id.tsx",
-    lineNumber: 63,
+    lineNumber: 65,
     columnNumber: 7
   }, this) }, void 0, !1, {
     fileName: "app/routes/dashboards.$id.tsx",
-    lineNumber: 62,
+    lineNumber: 64,
     columnNumber: 5
   }, this);
 }
@@ -2058,36 +2083,36 @@ var import_react15 = require("@remix-run/react"), import_jsx_dev_runtime19 = req
 
 // app/routes/layout/header.tsx
 var import_jsx_dev_runtime20 = require("react/jsx-dev-runtime");
-function LayoutHeader({ user }) {
+function LayoutHeader({ user, hamsters }) {
   let [opened, { open, close }] = (0, import_hooks4.useDisclosure)(!1), [openedPet, { open: openPet, close: closePet }] = (0, import_hooks4.useDisclosure)(!1);
   return /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(import_jsx_dev_runtime20.Fragment, { children: [
     /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(import_core15.Header, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(import_core15.Container, { className: "py-3", children: /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(import_core15.Flex, { grow: 1, align: "center", justify: "space-between", children: [
       /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(import_core15.Burger, { className: "black", size: "sm", onClick: open }, void 0, !1, {
         fileName: "app/routes/layout/header.tsx",
-        lineNumber: 40,
+        lineNumber: 39,
         columnNumber: 13
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(import_core15.Title, { order: 4, children: "\u30CF\u30E0\u30E9\u30F3\u30C9" }, void 0, !1, {
         fileName: "app/routes/layout/header.tsx",
-        lineNumber: 41,
+        lineNumber: 40,
         columnNumber: 13
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(import_icons_react7.IconPawFilled, { size: 24, onClick: openPet }, void 0, !1, {
         fileName: "app/routes/layout/header.tsx",
-        lineNumber: 42,
+        lineNumber: 41,
         columnNumber: 13
       }, this)
     ] }, void 0, !0, {
       fileName: "app/routes/layout/header.tsx",
-      lineNumber: 39,
+      lineNumber: 38,
       columnNumber: 11
     }, this) }, void 0, !1, {
       fileName: "app/routes/layout/header.tsx",
-      lineNumber: 38,
+      lineNumber: 37,
       columnNumber: 9
     }, this) }, void 0, !1, {
       fileName: "app/routes/layout/header.tsx",
-      lineNumber: 37,
+      lineNumber: 36,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(
@@ -2112,27 +2137,27 @@ function LayoutHeader({ user }) {
               !1,
               {
                 fileName: "app/routes/layout/header.tsx",
-                lineNumber: 57,
+                lineNumber: 56,
                 columnNumber: 15
               },
               this
             ),
             /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)("div", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(import_core15.Text, { fz: "md", className: "font-bold", children: user.name }, void 0, !1, {
               fileName: "app/routes/layout/header.tsx",
-              lineNumber: 63,
+              lineNumber: 62,
               columnNumber: 17
             }, this) }, void 0, !1, {
               fileName: "app/routes/layout/header.tsx",
-              lineNumber: 62,
+              lineNumber: 61,
               columnNumber: 15
             }, this)
           ] }, void 0, !0, {
             fileName: "app/routes/layout/header.tsx",
-            lineNumber: 56,
+            lineNumber: 55,
             columnNumber: 13
           }, this) }, void 0, !1, {
             fileName: "app/routes/layout/header.tsx",
-            lineNumber: 55,
+            lineNumber: 54,
             columnNumber: 11
           }, this),
           /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(import_core15.Navbar.Section, { className: "p-0", children: [
@@ -2144,12 +2169,12 @@ function LayoutHeader({ user }) {
                 children: [
                   /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(import_icons_react7.IconHome2, { size: "1rem", stroke: 1.5 }, void 0, !1, {
                     fileName: "app/routes/layout/header.tsx",
-                    lineNumber: 74,
+                    lineNumber: 73,
                     columnNumber: 15
                   }, this),
                   /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)("span", { className: "ml-3", children: "\u30C0\u30C3\u30B7\u30E5\u30DC\u30FC\u30C9" }, void 0, !1, {
                     fileName: "app/routes/layout/header.tsx",
-                    lineNumber: 75,
+                    lineNumber: 74,
                     columnNumber: 15
                   }, this)
                 ]
@@ -2158,7 +2183,7 @@ function LayoutHeader({ user }) {
               !0,
               {
                 fileName: "app/routes/layout/header.tsx",
-                lineNumber: 70,
+                lineNumber: 69,
                 columnNumber: 13
               },
               this
@@ -2171,12 +2196,12 @@ function LayoutHeader({ user }) {
                 children: [
                   /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(import_icons_react7.IconUsers, { size: "1rem", stroke: 1.5 }, void 0, !1, {
                     fileName: "app/routes/layout/header.tsx",
-                    lineNumber: 81,
+                    lineNumber: 80,
                     columnNumber: 15
                   }, this),
                   /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)("span", { className: "ml-3", children: "\u30D7\u30ED\u30D5\u30A3\u30FC\u30EB\u60C5\u5831" }, void 0, !1, {
                     fileName: "app/routes/layout/header.tsx",
-                    lineNumber: 82,
+                    lineNumber: 81,
                     columnNumber: 15
                   }, this)
                 ]
@@ -2185,7 +2210,7 @@ function LayoutHeader({ user }) {
               !0,
               {
                 fileName: "app/routes/layout/header.tsx",
-                lineNumber: 77,
+                lineNumber: 76,
                 columnNumber: 13
               },
               this
@@ -2198,12 +2223,12 @@ function LayoutHeader({ user }) {
                 children: [
                   /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(import_icons_react7.IconBuildingHospital, { size: "1rem", stroke: 1.5 }, void 0, !1, {
                     fileName: "app/routes/layout/header.tsx",
-                    lineNumber: 88,
+                    lineNumber: 87,
                     columnNumber: 15
                   }, this),
                   /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)("span", { className: "ml-3", children: "\u75C5\u9662\u691C\u7D22" }, void 0, !1, {
                     fileName: "app/routes/layout/header.tsx",
-                    lineNumber: 89,
+                    lineNumber: 88,
                     columnNumber: 15
                   }, this)
                 ]
@@ -2212,7 +2237,7 @@ function LayoutHeader({ user }) {
               !0,
               {
                 fileName: "app/routes/layout/header.tsx",
-                lineNumber: 84,
+                lineNumber: 83,
                 columnNumber: 13
               },
               this
@@ -2225,12 +2250,12 @@ function LayoutHeader({ user }) {
                 children: [
                   /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(import_icons_react7.IconBasketFilled, { size: "1rem", stroke: 1.5 }, void 0, !1, {
                     fileName: "app/routes/layout/header.tsx",
-                    lineNumber: 95,
+                    lineNumber: 94,
                     columnNumber: 15
                   }, this),
                   /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)("span", { className: "ml-3", children: "\u30CF\u30E0\u30B9\u30BF\u30FC\u30B0\u30C3\u30BA\u691C\u7D22" }, void 0, !1, {
                     fileName: "app/routes/layout/header.tsx",
-                    lineNumber: 96,
+                    lineNumber: 95,
                     columnNumber: 15
                   }, this)
                 ]
@@ -2239,28 +2264,28 @@ function LayoutHeader({ user }) {
               !0,
               {
                 fileName: "app/routes/layout/header.tsx",
-                lineNumber: 91,
+                lineNumber: 90,
                 columnNumber: 13
               },
               this
             ),
             /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)("div", { className: "mt-10", children: /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(LogoutForm_default, { user }, void 0, !1, {
               fileName: "app/routes/layout/header.tsx",
-              lineNumber: 101,
+              lineNumber: 100,
               columnNumber: 15
             }, this) }, void 0, !1, {
               fileName: "app/routes/layout/header.tsx",
-              lineNumber: 100,
+              lineNumber: 99,
               columnNumber: 13
             }, this)
           ] }, void 0, !0, {
             fileName: "app/routes/layout/header.tsx",
-            lineNumber: 69,
+            lineNumber: 68,
             columnNumber: 11
           }, this)
         ] }, void 0, !0, {
           fileName: "app/routes/layout/header.tsx",
-          lineNumber: 54,
+          lineNumber: 53,
           columnNumber: 9
         }, this)
       },
@@ -2268,7 +2293,7 @@ function LayoutHeader({ user }) {
       !1,
       {
         fileName: "app/routes/layout/header.tsx",
-        lineNumber: 46,
+        lineNumber: 45,
         columnNumber: 7
       },
       this
@@ -2287,22 +2312,74 @@ function LayoutHeader({ user }) {
           /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(import_core15.Drawer.Title, { className: " pb-5 font-bold flex items-center border-0 border-b border-gray-200 border-solid", children: [
             /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(import_icons_react7.IconPawFilled, { size: "1.5rem", stroke: 1.5, className: "mr-3" }, void 0, !1, {
               fileName: "app/routes/layout/header.tsx",
-              lineNumber: 117,
+              lineNumber: 116,
               columnNumber: 11
             }, this),
             "\u98FC\u3063\u3066\u3044\u308B\u30CF\u30E0\u30B9\u30BF\u30FC"
           ] }, void 0, !0, {
             fileName: "app/routes/layout/header.tsx",
-            lineNumber: 116,
+            lineNumber: 115,
             columnNumber: 9
           }, this),
-          /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(import_core15.Drawer.Body, { className: "p-0", children: /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(import_core15.Group, { className: "gap-0" }, void 0, !1, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(import_core15.Drawer.Body, { className: "p-0", children: /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(import_core15.Group, { className: "gap-0", children: hamsters.map((hamster, index) => /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(
+            import_core15.Flex,
+            {
+              align: "center",
+              className: "gap-0 py-3 border-0 border-b border-gray-200 border-solid",
+              children: [
+                /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)("div", { className: "mr-5", children: /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(
+                  import_core15.Avatar,
+                  {
+                    size: 64,
+                    className: "rounded-full border border-solid border-gray-200",
+                    src: "https://arrown-blog.com/wp-content/uploads/2023/04/kenzou-740x378.jpeg"
+                  },
+                  void 0,
+                  !1,
+                  {
+                    fileName: "app/routes/layout/header.tsx",
+                    lineNumber: 129,
+                    columnNumber: 19
+                  },
+                  this
+                ) }, void 0, !1, {
+                  fileName: "app/routes/layout/header.tsx",
+                  lineNumber: 128,
+                  columnNumber: 17
+                }, this),
+                /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)("div", { children: [
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(import_core15.Text, { fz: "md", className: "font-bold", children: hamster.name }, void 0, !1, {
+                    fileName: "app/routes/layout/header.tsx",
+                    lineNumber: 136,
+                    columnNumber: 19
+                  }, this),
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(import_core15.Text, { fz: "xs", children: constants.kind[hamster.kindId] }, void 0, !1, {
+                    fileName: "app/routes/layout/header.tsx",
+                    lineNumber: 139,
+                    columnNumber: 19
+                  }, this)
+                ] }, void 0, !0, {
+                  fileName: "app/routes/layout/header.tsx",
+                  lineNumber: 135,
+                  columnNumber: 17
+                }, this)
+              ]
+            },
+            index,
+            !0,
+            {
+              fileName: "app/routes/layout/header.tsx",
+              lineNumber: 123,
+              columnNumber: 15
+            },
+            this
+          )) }, void 0, !1, {
             fileName: "app/routes/layout/header.tsx",
-            lineNumber: 122,
+            lineNumber: 121,
             columnNumber: 11
           }, this) }, void 0, !1, {
             fileName: "app/routes/layout/header.tsx",
-            lineNumber: 121,
+            lineNumber: 120,
             columnNumber: 9
           }, this)
         ]
@@ -2311,14 +2388,14 @@ function LayoutHeader({ user }) {
       !0,
       {
         fileName: "app/routes/layout/header.tsx",
-        lineNumber: 107,
+        lineNumber: 106,
         columnNumber: 7
       },
       this
     )
   ] }, void 0, !0, {
     fileName: "app/routes/layout/header.tsx",
-    lineNumber: 36,
+    lineNumber: 35,
     columnNumber: 5
   }, this);
 }
@@ -2354,9 +2431,9 @@ async function loader4({ request }) {
   }), user };
 }
 function Dashboards() {
-  let { user } = (0, import_react16.useLoaderData)();
+  let { user, hamsters } = (0, import_react16.useLoaderData)();
   return /* @__PURE__ */ (0, import_jsx_dev_runtime22.jsxDEV)(import_jsx_dev_runtime22.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime22.jsxDEV)(LayoutHeader, { user }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime22.jsxDEV)(LayoutHeader, { user, hamsters }, void 0, !1, {
       fileName: "app/routes/dashboards.tsx",
       lineNumber: 34,
       columnNumber: 7
@@ -2439,7 +2516,7 @@ async function action5({ request }) {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-Z4CH2IZS.js", imports: ["/build/_shared/chunk-ZWGWGGVF.js", "/build/_shared/chunk-GIAAE3CH.js", "/build/_shared/chunk-IL37TEON.js", "/build/_shared/chunk-NMZL6IDN.js", "/build/_shared/chunk-BOXFZXVX.js", "/build/_shared/chunk-BHG7KMLG.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-O55UAQCG.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-6JDXTRPJ.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/auth.$provider": { id: "routes/auth.$provider", parentId: "root", path: "auth/:provider", index: void 0, caseSensitive: void 0, module: "/build/routes/auth.$provider-JICM3LZN.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/auth.$provider.callback": { id: "routes/auth.$provider.callback", parentId: "routes/auth.$provider", path: "callback", index: void 0, caseSensitive: void 0, module: "/build/routes/auth.$provider.callback-DBRCVAXE.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards": { id: "routes/dashboards", parentId: "root", path: "dashboards", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards-QC4IZQ7F.js", imports: ["/build/_shared/chunk-DXZPNPAJ.js", "/build/_shared/chunk-46A2TU25.js", "/build/_shared/chunk-MQO757Q3.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.$id": { id: "routes/dashboards.$id", parentId: "routes/dashboards", path: ":id", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.$id-FHSTVPKQ.js", imports: ["/build/_shared/chunk-SDOXSTN5.js", "/build/_shared/chunk-G7CHZRZX.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.$id.diary": { id: "routes/dashboards.$id.diary", parentId: "routes/dashboards.$id", path: "diary", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.$id.diary-V7E3A773.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.$id.diary.$date": { id: "routes/dashboards.$id.diary.$date", parentId: "routes/dashboards.$id.diary", path: ":date", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.$id.diary.$date-LCA7P56A.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.$id_.edit": { id: "routes/dashboards.$id_.edit", parentId: "routes/dashboards", path: ":id/edit", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.$id_.edit-UBF6JDA6.js", imports: ["/build/_shared/chunk-FJXECIEU.js", "/build/_shared/chunk-G7CHZRZX.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards._index": { id: "routes/dashboards._index", parentId: "routes/dashboards", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/dashboards._index-7GM5N3LG.js", imports: ["/build/_shared/chunk-SDOXSTN5.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.add": { id: "routes/dashboards.add", parentId: "routes/dashboards", path: "add", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.add-BYAONA6I.js", imports: ["/build/_shared/chunk-FJXECIEU.js", "/build/_shared/chunk-G7CHZRZX.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.feed": { id: "routes/dashboards.feed", parentId: "routes/dashboards", path: "feed", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.feed-ACVOZ5LU.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.hospital": { id: "routes/dashboards.hospital", parentId: "routes/dashboards", path: "hospital", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.hospital-OIQ3TPUX.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.hospital_.$id": { id: "routes/dashboards.hospital_.$id", parentId: "routes/dashboards", path: "hospital/:id", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.hospital_.$id-JLHFRQWX.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.profile": { id: "routes/dashboards.profile", parentId: "routes/dashboards", path: "profile", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.profile-BY7JM65U.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.profile_.edit": { id: "routes/dashboards.profile_.edit", parentId: "routes/dashboards", path: "profile/edit", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.profile_.edit-OE7VIPB5.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/logout": { id: "routes/logout", parentId: "root", path: "logout", index: void 0, caseSensitive: void 0, module: "/build/routes/logout-GGSXPJWV.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, version: "7fdb6cfa", hmr: { runtime: "/build/_shared/chunk-BHG7KMLG.js", timestamp: 1689299753781 }, url: "/build/manifest-7FDB6CFA.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-QGWZEOXV.js", imports: ["/build/_shared/chunk-ZWGWGGVF.js", "/build/_shared/chunk-GIAAE3CH.js", "/build/_shared/chunk-OX63NKO4.js", "/build/_shared/chunk-NMZL6IDN.js", "/build/_shared/chunk-BOXFZXVX.js", "/build/_shared/chunk-SJYQVJLS.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-K73F4RU2.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-A474MTRT.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/auth.$provider": { id: "routes/auth.$provider", parentId: "root", path: "auth/:provider", index: void 0, caseSensitive: void 0, module: "/build/routes/auth.$provider-JICM3LZN.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/auth.$provider.callback": { id: "routes/auth.$provider.callback", parentId: "routes/auth.$provider", path: "callback", index: void 0, caseSensitive: void 0, module: "/build/routes/auth.$provider.callback-DBRCVAXE.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards": { id: "routes/dashboards", parentId: "root", path: "dashboards", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards-GSZZR2BI.js", imports: ["/build/_shared/chunk-MEFYXNYJ.js", "/build/_shared/chunk-DXZPNPAJ.js", "/build/_shared/chunk-46A2TU25.js", "/build/_shared/chunk-MQO757Q3.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.$id": { id: "routes/dashboards.$id", parentId: "routes/dashboards", path: ":id", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.$id-LSUAXIY2.js", imports: ["/build/_shared/chunk-JZJU4ZDV.js", "/build/_shared/chunk-G7CHZRZX.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.$id.diary": { id: "routes/dashboards.$id.diary", parentId: "routes/dashboards.$id", path: "diary", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.$id.diary-WY5KLG2M.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.$id.diary.$date": { id: "routes/dashboards.$id.diary.$date", parentId: "routes/dashboards.$id.diary", path: ":date", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.$id.diary.$date-E6J6I57R.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.$id_.edit": { id: "routes/dashboards.$id_.edit", parentId: "routes/dashboards", path: ":id/edit", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.$id_.edit-NKS3HSQD.js", imports: ["/build/_shared/chunk-U6XFS5BM.js", "/build/_shared/chunk-G7CHZRZX.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards._index": { id: "routes/dashboards._index", parentId: "routes/dashboards", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/dashboards._index-5QBDNPD5.js", imports: ["/build/_shared/chunk-JZJU4ZDV.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.add": { id: "routes/dashboards.add", parentId: "routes/dashboards", path: "add", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.add-YGDFMJJH.js", imports: ["/build/_shared/chunk-U6XFS5BM.js", "/build/_shared/chunk-G7CHZRZX.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.feed": { id: "routes/dashboards.feed", parentId: "routes/dashboards", path: "feed", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.feed-F5I64GDT.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.hospital": { id: "routes/dashboards.hospital", parentId: "routes/dashboards", path: "hospital", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.hospital-6VUTP3PE.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.hospital_.$id": { id: "routes/dashboards.hospital_.$id", parentId: "routes/dashboards", path: "hospital/:id", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.hospital_.$id-JYOYMUH7.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.profile": { id: "routes/dashboards.profile", parentId: "routes/dashboards", path: "profile", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.profile-WIW5FCS4.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/dashboards.profile_.edit": { id: "routes/dashboards.profile_.edit", parentId: "routes/dashboards", path: "profile/edit", index: void 0, caseSensitive: void 0, module: "/build/routes/dashboards.profile_.edit-42BQI3Z6.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/logout": { id: "routes/logout", parentId: "root", path: "logout", index: void 0, caseSensitive: void 0, module: "/build/routes/logout-GGSXPJWV.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, version: "7d3b42eb", hmr: { runtime: "/build/_shared/chunk-SJYQVJLS.js", timestamp: 1689333697377 }, url: "/build/manifest-7D3B42EB.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", future = { v2_dev: !0, unstable_postcss: !1, unstable_tailwind: !1, v2_errorBoundary: !0, v2_headers: !0, v2_meta: !0, v2_normalizeFormMethod: !0, v2_routeConvention: !0 }, publicPath = "/build/", entry = { module: entry_server_exports }, dev = { port: 3001 }, routes = {

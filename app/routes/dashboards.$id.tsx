@@ -1,6 +1,7 @@
 import { useDisclosure } from "@mantine/hooks";
 import { useLoaderData } from "@remix-run/react";
 import { constants } from "../utils/constant";
+import { TranslateDateToMY } from "../utils/plugin";
 
 import {
   Title,
@@ -42,6 +43,7 @@ export const loader = async ({ params }) => {
       id: parseInt(params.id),
     },
   });
+  hamster.birthday = TranslateDateToMY(hamster.birthday);
 
   return hamster;
 };
@@ -85,7 +87,9 @@ export default function DashboardsId() {
             </Title>
             <Text mt="md" mb="lg">
               <span className="block">ゴールデンハムスター</span>
-              <span> {constants.sex[hamster.sex]}</span>
+              <span className="inline-block mr-2">
+                {constants.sex[hamster.sexId]}
+              </span>
               <span>{hamster.birthday}</span>
             </Text>
             <Button fullWidth size="md" mt="md" onClick={""}>

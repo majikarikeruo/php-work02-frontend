@@ -27,11 +27,11 @@ export async function loader({ request }: LoaderArgs) {
 }
 
 export default function Dashboards() {
-  const { user } = useLoaderData();
+  const { user, hamsters } = useLoaderData();
 
   return (
     <>
-      <LayoutHeader user={user} />
+      <LayoutHeader user={user} hamsters={hamsters} />
       <Outlet />
       <LayoutFooter />
     </>
