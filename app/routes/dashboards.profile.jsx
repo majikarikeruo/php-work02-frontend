@@ -1,11 +1,10 @@
-import { Outlet } from "@remix-run/react";
+import { useRouteLoaderData } from "@remix-run/react";
 import {
   Title,
   Text,
   Avatar,
   Container,
   Anchor,
-  ThemeIcon,
   Button,
   Flex,
 } from "@mantine/core";
@@ -13,6 +12,9 @@ import {
 import { IconCameraPlus } from "@tabler/icons-react";
 
 export default function ProfileDashboards() {
+  const { user } = useRouteLoaderData("routes/dashboards");
+  console.log(user);
+
   return (
     <div className="bg-stone-50">
       <div className="py-8">
@@ -37,7 +39,7 @@ export default function ProfileDashboards() {
             <Title order={5} className="mb-2 font-bold">
               名前
             </Title>
-            <Text>こすげたつや</Text>
+            <Text>{user.name}</Text>
           </Flex>
           <Flex
             justify={"space-between"}
@@ -46,7 +48,7 @@ export default function ProfileDashboards() {
             <Title order={5} className="mb-2 font-bold">
               住んでる地域
             </Title>
-            <Text>神奈川県藤沢市</Text>
+            <Text>{user.address}</Text>
           </Flex>
           <Flex
             justify={"space-between"}
@@ -56,9 +58,7 @@ export default function ProfileDashboards() {
             <Title order={5} className="mb-2 font-bold">
               自己紹介
             </Title>
-            <Text>
-              神奈川県藤沢市から参りました小菅です。よろしくお願いいたします！好きなサッカーチームはサガン鳥栖です！まさことけんぞうがかかかわいいです！！
-            </Text>
+            <Text>{user.introduce}</Text>
           </Flex>
           <Flex justify={"center"} className="mt-8" gap={8}>
             <Button variant={"outline"} color="gray">

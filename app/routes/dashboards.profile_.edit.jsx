@@ -1,83 +1,163 @@
-import { Outlet } from "@remix-run/react";
+/* remix */
+import { useState } from "react";
+import { useRouteLoaderData, Form } from "@remix-run/react";
+import { redirect } from "@remix-run/node";
+
 import {
   Title,
   Anchor,
   Avatar,
   Container,
+  NumberInput,
   Input,
   Textarea,
   Button,
   Flex,
+  Text,
 } from "@mantine/core";
 
 import { IconCameraPlus } from "@tabler/icons-react";
 
+/** server */
+import { db } from "../db.server";
+
 export default function ProfileDashboards() {
+  const { user } = useRouteLoaderData("routes/dashboards");
+  console.log(user);
+
+  const [postcode, setPostcode] = useState(null);
+  const [address, setAddress] = useState(user ? user.address : "");
+
+  const transformPostalCode = () => {
+    const postalCode = String(postcode);
+    const postalCodeRegex = /^\d{3}-?\d{4}$/;
+    console.log(postcode);
+
+    if (postalCodeRegex.test(postalCode)) {
+      const postalCodeWithoutHyphen = postalCode.replace("-", "");
+      fetch(
+        `https://zipcloud.ibsnet.co.jp/api/search?zipcode=${postalCodeWithoutHyphen}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          const { address1, address2, address3 } = data.results[0];
+          const address = address1 + address2 + address3;
+          setAddress(address);
+        });
+    }
+  };
+
   return (
     <div className="bg-stone-50">
       <div className="py-8">
         <Title order={3} className="mb-5 px-4 text-center">
           飼い主情報編集
         </Title>
-        <Flex justify={"center"} className="mb-8 ">
-          <div className="relative">
-            <Avatar
-              size={120}
-              className="rounded-full border border-solid border-gray-200"
-              src="https://kosugelian.net/images/stamp18.png"
-            />
-            <IconCameraPlus className="absolute bottom-0 right-0" />
-          </div>
-        </Flex>
-        <Container>
-          <Flex
-            justify={"space-between"}
-            align={"center"}
-            className="py-3 border-0 border-b border-solid border-gray-200"
-          >
-            <Title order={5} className="font-bold">
-              名前
-            </Title>
-            <Input value={"こすげたつや"} />
+        <Form method="post">
+          <Flex justify={"center"} className="mb-8 ">
+            <div className="relative">
+              <Avatar
+                size={120}
+                className="rounded-full border border-solid border-gray-200"
+                src="https://kosugelian.net/images/stamp18.png"
+              />
+              <IconCameraPlus className="absolute bottom-0 right-0" />
+            </div>
           </Flex>
-          <Flex
-            justify={"space-between"}
-            align={"center"}
-            className="py-3 border-0 border-b border-solid border-gray-200"
-          >
-            <Title order={5} className="font-bold">
-              住んでる地域
-            </Title>
-            <Input value={"神奈川県藤沢市"} />
-          </Flex>
-          <Flex
-            justify={"space-between"}
-            direction={"column"}
-            className="py-3 border-0"
-          >
-            <Title order={5} className="font-bold mb-2">
-              自己紹介
-            </Title>
-            <Textarea
-              value={
-                "神奈川県藤沢市から参りました小菅です。よろしくお願いいたします！好きなサッカーチームはサガン鳥栖です！まさことけんぞうがかかかわいいです！！"
-              }
-              minRows={10}
-            />
-          </Flex>
-          <Flex justify={"center"} className="mt-8" gap={8}>
-            <Anchor
-              variant={"outline"}
-              href="/dashboards"
-              color="gray"
-              className="p-5 py-1 border rounded-md border-gray-400 border-solid"
+          <Container>
+            <Flex
+              justify={"space-between"}
+              align={"center"}
+              className="py-3 border-0 border-b border-solid border-gray-200"
             >
-              戻る
-            </Anchor>
-            <Button color="primary">プロフィールを編集</Button>
-          </Flex>
-        </Container>
+              <Title order={5} className="font-bold">
+                名前
+              </Title>
+              <Input defaultValue={user && user.name} />
+            </Flex>
+            <div className="py-3 border-0 border-b border-solid border-gray-200">
+              <Title order={5} className="font-bold mb-2">
+                住んでる地域
+              </Title>
+              <Text fz={"xs"} className="mb-4">
+                郵便番号から住所の一部を補完入力すると、近くの病院を探すのに便利です。
+              </Text>
+              <div className="">
+                <Flex>
+                  <NumberInput
+                    defaultValue={postcode}
+                    hideControls
+                    className="mb-2 w-20"
+                    name="postal-code"
+                    id="postal-code"
+                    onChange={(e) => setPostcode(e)}
+                  />
+                  <Button
+                    variant="outline"
+                    className="ml-2"
+                    onClick={(e) => transformPostalCode(e)}
+                  >
+                    住所補完
+                  </Button>
+                </Flex>
+
+                <Input defaultValue={address} readOnly name="address" />
+              </div>
+            </div>
+            <Flex
+              justify={"space-between"}
+              direction={"column"}
+              className="py-3 border-0"
+            >
+              <Title order={5} className="font-bold mb-2">
+                自己紹介
+              </Title>
+              <Textarea defaultValue={user && user.introduce} minRows={10} />
+            </Flex>
+            <Flex justify={"center"} className="mt-8" gap={8}>
+              <Anchor
+                variant={"outline"}
+                href="/dashboards"
+                color="gray"
+                className="p-5 py-1 border rounded-md border-gray-400 border-solid"
+              >
+                戻る
+              </Anchor>
+              <input type="hidden" value={user.id} name="id" />
+
+              <Button color="primary" type="submit">
+                プロフィールを編集
+              </Button>
+            </Flex>
+          </Container>
+        </Form>
       </div>
     </div>
   );
+}
+
+export async function action({ request }) {
+  const formData = await request.formData();
+  const profileData = Object.fromEntries(formData);
+  delete profileData["postal-code"];
+  profileData.id = parseInt(profileData.id);
+  /** validation */
+  console.log(profileData, 1);
+  try {
+    const userData = await db.user.update({
+      where: {
+        id: profileData.id,
+      },
+      data: {
+        ...profileData,
+      },
+    });
+
+    console.log(userData, 12);
+  } catch (e) {
+    console.log(e);
+  }
+
+  return redirect(`/dashboards/profile`);
 }

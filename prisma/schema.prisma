@@ -19,6 +19,9 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   deletedAt DateTime?
+  address   String?
+  introduce String?
+  flg Boolean @default(false)
 
   Hamster   Hamster[]
 }
@@ -41,6 +44,9 @@ model Hamster {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   deletedAt DateTime?
+  status String @default("alive")
+  statusChangedAt DateTime @updatedAt
+
   
   @@index([userId])
 }
