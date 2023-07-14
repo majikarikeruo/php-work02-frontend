@@ -5,7 +5,7 @@
 ## DEMO
 
 https://php-work02-frontend.vercel.app/
-（なんかうまくいっていないかもしれない
+（なんかうまくいっていないかもしれない.callback先がlocalhost向いちゃってる状態が続いているので追って直します）
 
 ## 紹介と使い方
 
