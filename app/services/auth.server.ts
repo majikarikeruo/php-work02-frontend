@@ -9,7 +9,7 @@ export let authenticator = new Authenticator<User>(sessionStorage, {
 });
 
 const getCallback = (provider: SocialsProvider) => {
-  return `http://localhost:3000/auth/${provider}/callback`;
+  return `${process.env.APP_URL}/auth/${provider}/callback`;
 };
 
 authenticator.use(
