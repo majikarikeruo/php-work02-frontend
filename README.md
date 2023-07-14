@@ -1,53 +1,35 @@
-# Welcome to Remix!
+# ここにタイトルを入れる
 
-- [Remix Docs](https://remix.run/docs)
+ここ最近手をつけているハムスターアプリの続き
 
-## Development
+## DEMO
 
-From your terminal:
+https://php-work02-frontend.vercel.app/
 
-```sh
-npm run dev
-```
+## 紹介と使い方
 
-This starts your app in development mode, rebuilding assets on file changes.
+ここ最近手をつけているハムスターアプリの続きです。
+前回までフロントエンド Remix・バックエンド Laravel としていましたが、
+Laravel 部分を外し、Remix でバックエンドも完全兼務できるようにしました。
+（PHP の課題なのにすみません）
 
-## Deployment
+構成としてはデータベースに Planet Scale を再度用い、
+Prisma を介す形にしました。
 
-First, build your app for production:
+認証部分は絶対このアプリを使いそうな人にはありえませんが、
+GitHub を用いました。これは参考にしたチュートリアルの影響です。
 
-```sh
-npm run build
-```
+見ていただきやすいよう、現時点では一旦ハムスターの登録更新表示削除部分に絞って表示しています。
 
-Then run the app in production mode:
+## 工夫した点
 
-```sh
-npm start
-```
+亀のようなスピードながら、色々チュートリアルとか Youtube とかを消化する中で、
+ようやく少し Remix の理解が進んできたのが今週嬉しかったことでした。
 
-Now you'll need to pick a host to deploy it to.
+## 苦戦した点
 
-### DIY
+それでもまだ理解のスピードが遅いという点です。
 
-If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
+## 参考にした web サイトなど
 
-Make sure to deploy the output of `remix build`
-
-- `build/`
-- `public/build/`
-
-### Using a Template
-
-When you ran `npx create-remix@latest` there were a few choices for hosting. You can run that again to create a new project, then copy over your `app/` folder to the new project that's pre-configured for your target server.
-
-```sh
-cd ..
-# create a new project, and pick a pre-configured host
-npx create-remix@latest
-cd my-new-remix-app
-# remove the new project's app (not the old one!)
-rm -rf app
-# copy your app over
-cp -R ../my-old-remix-app/app app
-```
+https://www.youtube.com/watch?v=WUoXCSYiNKk&t=4070s
