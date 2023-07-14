@@ -30,6 +30,7 @@
     "tailwindcss": "^3.3.2"
   },
   "devDependencies": {
+    "@mantine/ds": "^6.0.16",
     "@remix-run/dev": "^1.18.1",
     "@remix-run/eslint-config": "^1.18.1",
     "@types/react": "^18.0.35",
