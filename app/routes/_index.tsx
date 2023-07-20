@@ -18,9 +18,7 @@ export async function loader({ request }: LoaderArgs) {
 export default function Index() {
   return (
     <div className="max-w-xl mx-auto border rounded-lg p-10 mt-32">
-      <h1 className="text-4xl font-semibold text-center">
-        ハムランド・ログイン
-      </h1>
+      <h1 className="text-4xl font-semibold text-center">ログイン</h1>
 
       <Form method="POST" action="/auth/github" className="mt-8">
         <button

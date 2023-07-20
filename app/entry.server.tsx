@@ -5,12 +5,14 @@
  */
 
 import { PassThrough } from "node:stream";
+import { renderToString, renderToPipeableStream } from "react-dom/server";
 
-import type { AppLoadContext, EntryContext } from "@remix-run/node";
+import type { EntryContext } from "@remix-run/node";
 import { Response } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
-import isbot from "isbot";
-import { renderToPipeableStream } from "react-dom/server";
+import { injectStyles, createStylesServer } from "@mantine/remix";
+
+const server = createStylesServer();
 
 const ABORT_DELAY = 5_000;
 
@@ -18,22 +20,17 @@ export default function handleRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-  remixContext: EntryContext,
-  loadContext: AppLoadContext
+  remixContext: EntryContext
 ) {
-  return isbot(request.headers.get("user-agent"))
-    ? handleBotRequest(
-        request,
-        responseStatusCode,
-        responseHeaders,
-        remixContext
-      )
-    : handleBrowserRequest(
-        request,
-        responseStatusCode,
-        responseHeaders,
-        remixContext
-      );
+  let markup = renderToString(
+    <RemixServer context={remixContext} url={request.url} />
+  );
+  responseHeaders.set("Content-Type", "text/html");
+
+  return new Response(`<!DOCTYPE html>${injectStyles(markup, server)}`, {
+    status: responseStatusCode,
+    headers: responseHeaders,
+  });
 }
 
 function handleBotRequest(
