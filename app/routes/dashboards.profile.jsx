@@ -69,7 +69,7 @@ export default function ProfileDashboards() {
               color="primary"
               className="bg-[#339AF0] text-white p-4 py-2 rounded-sm font-bold"
             >
-              プロフィールを編集する
+              プロフィールを編集
             </Anchor>
           </Flex>
         </Container>

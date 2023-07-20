@@ -66,16 +66,12 @@ export default function ProfileDashboards() {
             </div>
           </Flex>
           <Container>
-            <Flex
-              justify={"space-between"}
-              align={"center"}
-              className="py-3 border-0 border-b border-solid border-gray-200"
-            >
-              <Title order={5} className="font-bold">
+            <div className="py-3 border-0 border-b border-solid border-gray-200">
+              <Title order={5} className="font-bold mb-2">
                 名前
               </Title>
-              <Input defaultValue={user && user.name} />
-            </Flex>
+              <Input defaultValue={user && user.name} name="name" />
+            </div>
             <div className="py-3 border-0 border-b border-solid border-gray-200">
               <Title order={5} className="font-bold mb-2">
                 住んでる地域
@@ -113,7 +109,11 @@ export default function ProfileDashboards() {
               <Title order={5} className="font-bold mb-2">
                 自己紹介
               </Title>
-              <Textarea defaultValue={user && user.introduce} minRows={10} />
+              <Textarea
+                defaultValue={user && user.introduce}
+                minRows={10}
+                name="introduce"
+              />
             </Flex>
             <Flex justify={"center"} className="mt-8" gap={8}>
               <Anchor
@@ -127,7 +127,7 @@ export default function ProfileDashboards() {
               <input type="hidden" value={user.id} name="id" />
 
               <Button color="primary" type="submit">
-                プロフィールを編集
+                更新
               </Button>
             </Flex>
           </Container>

@@ -22,12 +22,12 @@ export async function loader({ request }: LoaderArgs) {
       userId: user.id,
     },
   });
-
   return { hamsters, user };
 }
 
 export default function Dashboards() {
   const { user, hamsters } = useLoaderData();
+  console.log(user);
 
   return (
     <>

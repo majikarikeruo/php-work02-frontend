@@ -25,6 +25,7 @@ export default function Index() {
 
       <Form method="POST" action="/auth/google" className="mt-8">
         <Button
+          type="submit"
           leftIcon={
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +69,7 @@ export default function Index() {
               focusable="false"
               data-prefix="fab"
               data-icon="facebook"
-              class="svg-inline--fa fa-facebook"
+              className="svg-inline--fa fa-facebook"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
