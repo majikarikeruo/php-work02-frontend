@@ -1,4 +1,4 @@
-import { useRouteLoaderData } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import {
   Title,
   Text,
@@ -9,11 +9,32 @@ import {
   Flex,
 } from "@mantine/core";
 
+/** services */
+import { authenticator } from "../services/auth.server";
+
+/** server */
+import { db } from "../db.server";
+
 import { IconCameraPlus } from "@tabler/icons-react";
 
+/** loader */
+export async function loader({ request }: LoaderArgs) {
+  const authUser = await authenticator.isAuthenticated(request, {
+    failureRedirect: "/",
+  });
+
+  const user = await db.user.findUnique({
+    where: {
+      id: authUser.id,
+    },
+  });
+
+  return { user };
+}
+
 export default function ProfileDashboards() {
-  const { user } = useRouteLoaderData("routes/dashboards");
-  console.log(user);
+  const { user } = useLoaderData();
+  console.log(user, 2);
 
   return (
     <div className="bg-stone-50">

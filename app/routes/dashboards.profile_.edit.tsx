@@ -1,6 +1,6 @@
 /* remix */
 import { useState } from "react";
-import { useRouteLoaderData, Form } from "@remix-run/react";
+import { useLoaderData, Form } from "@remix-run/react";
 import { redirect } from "@remix-run/node";
 
 import {
@@ -18,12 +18,30 @@ import {
 
 import { IconCameraPlus } from "@tabler/icons-react";
 
+/** services */
+import { authenticator } from "../services/auth.server";
+
 /** server */
 import { db } from "../db.server";
 
-export default function ProfileDashboards() {
-  const { user } = useRouteLoaderData("routes/dashboards");
-  console.log(user);
+/** loader */
+export async function loader({ request }: LoaderArgs) {
+  const authUser = await authenticator.isAuthenticated(request, {
+    failureRedirect: "/",
+  });
+
+  const user = await db.user.findUnique({
+    where: {
+      id: authUser.id,
+    },
+  });
+
+  return { user };
+}
+
+export default function ProfileEdit() {
+  const { user } = useLoaderData();
+  console.log(user, 1);
 
   const [postcode, setPostcode] = useState(null);
   const [address, setAddress] = useState(user ? user.address : "");

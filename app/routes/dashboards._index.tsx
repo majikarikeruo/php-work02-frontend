@@ -30,9 +30,15 @@ export default function DashboardsIndex() {
           <SectionHeading text={"ペット情報"} icon={""} />
 
           <Group className="gap-0 border-0 border-b border-solid border-gray-300 mb-3">
-            {hamsters.map((hamster, index) => (
-              <HamsterMedia hamster={hamster} key={index} />
-            ))}
+            {hamsters.length > 0 ? ( // ペットが登録されていない場合}
+              hamsters.map((hamster, index) => (
+                <HamsterMedia hamster={hamster} key={index} />
+              ))
+            ) : (
+              <div className="w-full text-center text-gray-500 py-8 px-4 text-sm">
+                ペットが登録されていません
+              </div>
+            )}
           </Group>
 
           <Container>

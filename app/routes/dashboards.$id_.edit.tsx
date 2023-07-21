@@ -21,7 +21,7 @@ export const loader = async ({ params }) => {
   return hamster;
 };
 
-export default function ProfileDashboards() {
+export default function HamsterEdit() {
   const hamster = useLoaderData();
   const { user } = useRouteLoaderData("routes/dashboards");
 
