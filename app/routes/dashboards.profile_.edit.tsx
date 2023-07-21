@@ -1,7 +1,7 @@
 /* remix */
 import { useState } from "react";
 import { useLoaderData, Form } from "@remix-run/react";
-import { redirect } from "@remix-run/node";
+import { redirect, createCookieSessionStorage } from "@remix-run/node";
 
 import {
   Title,
@@ -20,6 +20,7 @@ import { IconCameraPlus } from "@tabler/icons-react";
 
 /** services */
 import { authenticator } from "../services/auth.server";
+import { getSession, commitSession } from "../services/session.server";
 
 /** server */
 import { db } from "../db.server";
@@ -161,7 +162,7 @@ export async function action({ request }) {
   delete profileData["postal-code"];
   profileData.id = parseInt(profileData.id);
   /** validation */
-  console.log(profileData, 1);
+
   try {
     const userData = await db.user.update({
       where: {
@@ -177,5 +178,13 @@ export async function action({ request }) {
     console.log(e);
   }
 
-  return redirect(`/dashboards/profile`);
+  /**
+   * sessionに更新されたユーザー情報を保存する
+   */
+  const session = await getSession(request.headers.get("Cookie"));
+  session.set("user", profileData);
+
+  return redirect(`/dashboards/profile`, {
+    headers: { "set-cookie": await commitSession(session) },
+  });
 }
