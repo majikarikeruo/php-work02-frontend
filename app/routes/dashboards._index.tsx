@@ -13,6 +13,7 @@ import CenterButton from "../components/common/CenterButton";
 import SectionHeading from "../components/SectionHeading";
 import GoodsMedia from "../components/GoodsMedia";
 import HospitalMedia from "../components/HospitalMedia";
+import NoResult from "../components/common/NoResult";
 
 /*****************************************v
  * loader関数はサーバーサイドで実行される関数
@@ -30,14 +31,12 @@ export default function DashboardsIndex() {
           <SectionHeading text={"ペット情報"} icon={""} />
 
           <Group className="gap-0 border-0 border-b border-solid border-gray-300 mb-3">
-            {hamsters.length > 0 ? ( // ペットが登録されていない場合}
+            {hamsters.length > 0 ? (
               hamsters.map((hamster, index) => (
                 <HamsterMedia hamster={hamster} key={index} />
               ))
             ) : (
-              <div className="w-full text-center text-gray-500 py-8 px-4 text-sm">
-                ペットが登録されていません
-              </div>
+              <NoResult msg={"ペットが登録されていません"} />
             )}
           </Group>
 
@@ -52,18 +51,20 @@ export default function DashboardsIndex() {
         {/* ペット情報*/}
 
         {/* 病院情報*/}
-        {/* <div className="py-8">
-        <SectionHeading text={"病院情報"} icon={IconStethoscope} />
+        <div className="py-8">
+          <SectionHeading text={"病院情報"} icon={IconStethoscope} />
 
-        <Group className="gap-0 border-0 border-b border-solid border-gray-300 mb-3">
-          {ary.map((item, index) => (
-            <HospitalMedia key={index} />
-          ))}
-        </Group>
-        <Container>
-          <CenterButton text={"病院を探す"} url={"/dashboards/hospital"} />{" "}
-        </Container>
-      </div> */}
+          <Group className="gap-0 border-0 border-b border-solid border-gray-300 mb-3">
+            {[1, 2, 3].length > 0 ? (
+              [1, 2, 3].map((item, index) => <HospitalMedia key={index} />)
+            ) : (
+              <NoResult msg={"病院が登録されていません"} />
+            )}
+          </Group>
+          <Container>
+            <CenterButton text={"病院を探す"} url={"/dashboards/hospital"} />{" "}
+          </Container>
+        </div>
         {/* // 病院情報 */}
 
         {/* 良く購入する商品
